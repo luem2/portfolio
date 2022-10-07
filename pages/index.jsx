@@ -1,13 +1,13 @@
 import { Container, Text } from '@nextui-org/react';
 import Head from 'next/head';
-import { Layout } from '../src/components/Layout';
-import { Box } from '../src/components';
+import { Box, Layout } from '../src/components';
 
 export default function Home() {
   return (
-    <>
-      <Layout />
-      {/* <Box>Hola</Box> */}
+    <Layout
+      pageTitle='Home'
+      pageDescription='This is the home page of my Portfolio.'
+    >
       <Container>
         <Text
           h1
@@ -20,6 +20,6 @@ export default function Home() {
           Luciano Piñol
         </Text>
       </Container>
-    </>
+    </Layout>
   );
 }
