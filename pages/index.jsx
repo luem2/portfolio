@@ -1,6 +1,5 @@
 import { Container, Text } from '@nextui-org/react';
-import Head from 'next/head';
-import { Box, Layout } from '../src/components';
+import { Layout } from '../src/components';
 
 export default function Home() {
   return (

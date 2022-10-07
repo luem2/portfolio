@@ -7,7 +7,7 @@ export default function About() {
       pageTitle='About'
       pageDescription='A little about who I am and my education'
     >
-      XD
+      About me
     </Layout>
   );
 }

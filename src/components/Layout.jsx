@@ -8,7 +8,7 @@ export function Layout({ children, pageTitle, pageDescription }) {
       <Head>
         <title>{`Luciano Piñol - ${pageTitle || 'Portfolio'}`}</title>
         <meta name='description' content={pageDescription} />
-        <link rel='icon' href='/favicon.svg' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Box
         css={{

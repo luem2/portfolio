@@ -1,0 +1,8 @@
+.logo {
+  transition: all 0.4s ease-in-out;
+}
+
+.logo:hover {
+  opacity: 0.6;
+  transform: rotate(10deg);
+}
