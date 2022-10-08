@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import { Button, Link, Navbar } from '@nextui-org/react';
 import { logo } from '/src/assets';
 import { Box } from '../Box';
-import { SocialMedia } from './SocialMedia';
+import { SocialMedia, SocialMediaCompacted } from './SocialMedia';
 import styles from '/styles/Navbar.module.css';
 
 export default function NavigateBar() {
@@ -107,6 +107,7 @@ export default function NavigateBar() {
             Download CV
           </Button>
         </Navbar.Content>
+        <SocialMediaCompacted />
         <SocialMedia />
         <Navbar.Content>
           <Navbar.Brand showIn={'md'}>
