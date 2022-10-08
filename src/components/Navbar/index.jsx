@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import { useTheme as useNextTheme } from 'next-themes';
-import { Button, Link, Navbar, Switch, useTheme } from '@nextui-org/react';
-import {
-  logo,
-  AiOutlineTwitter,
-  AiFillLinkedin,
-  AiFillGithub,
-  BsFillSunFill,
-  BsFillMoonFill,
-  GrMail,
-} from '/src/assets';
+
+import { Button, Link, Navbar } from '@nextui-org/react';
+import { logo } from '/src/assets';
 import { Box } from '../Box';
+import { SocialMedia } from './SocialMedia';
 import styles from '/styles/Navbar.module.css';
 
 export default function NavigateBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState('/');
-  const { setTheme } = useNextTheme();
-  const { isDark } = useTheme();
+
   const collapseItems = ['Home', 'About', 'Tech Stack', 'Projects', 'Contact'];
 
   useEffect(() => {
@@ -111,114 +103,25 @@ export default function NavigateBar() {
               Contact
             </Navbar.Link>
           </NextLink>
-          <Button color='secondary' auto ghost>
+          <Button color='gradient' auto ghost shadow animated>
             Download CV
           </Button>
         </Navbar.Content>
-        <Navbar.Content>
-          <Navbar.Item
-            css={{
-              transition: 'all 300ms ease-in-out',
-              '&:hover': {
-                cursor: 'pointer',
-                opacity: '0.5',
-              },
-            }}
-          >
-            <a
-              style={{
-                color: isDark ? 'white' : '#1F1F1F',
-              }}
-              href='https://www.linkedin.com/in/lucianopinol'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <AiFillLinkedin size={25} />
-            </a>
-          </Navbar.Item>
-          <Navbar.Item
-            css={{
-              transition: 'all 300ms ease-in-out',
-              '&:hover': {
-                cursor: 'pointer',
-                opacity: '0.5',
-                transition: '200ms',
-              },
-            }}
-          >
-            <a
-              style={{
-                color: isDark ? 'white' : '#1F1F1F',
-              }}
-              href='https://www.github.com/luem2'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <AiFillGithub size={25} />
-            </a>
-          </Navbar.Item>
-          <Navbar.Item
-            css={{
-              transition: 'all 300ms ease-in-out',
-              '&:hover': {
-                cursor: 'pointer',
-                opacity: '0.5',
-                transition: '200ms',
-              },
-            }}
-          >
-            <a
-              style={{
-                color: isDark ? 'white' : '#1F1F1F',
-              }}
-              href='https://www.twitter.com/luem08'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <AiOutlineTwitter size={25} />
-            </a>
-          </Navbar.Item>
-          <Navbar.Item
-            css={{
-              transition: 'all 300ms ease-in-out',
-              '&:hover': {
-                cursor: 'pointer',
-                opacity: '0.5',
-                transition: '200ms',
-              },
-            }}
-          >
-            <a
-              style={{
-                color: isDark ? 'white' : '#1F1F1F ',
-              }}
-              href='mailto:dev@lucianopinol.com'
-            >
-              <GrMail size={25} />
-            </a>
-          </Navbar.Item>
-          <Navbar.Item>
-            <Switch
-              checked={isDark}
-              color='secondary'
-              size='md'
-              iconOff={<BsFillMoonFill size={20} />}
-              iconOn={<BsFillSunFill size={20} />}
-              onChange={e => setTheme(e.target.checked ? 'dark' : 'light')}
-            />
-          </Navbar.Item>
-        </Navbar.Content>
+        <SocialMedia />
         <Navbar.Content>
           <Navbar.Brand showIn={'md'}>
             <NextLink href='/'>
               <a>
-                <Image
-                  onClick={() => setActive('/')}
-                  src={logo}
-                  height={75}
-                  width={75}
-                  alt='Luem Logo'
-                />
+                <div className={styles.logo}>
+                  <Image
+                    className={styles.logo}
+                    onClick={() => setActive('/')}
+                    src={logo}
+                    height={75}
+                    width={75}
+                    alt='Luem Logo'
+                  />
+                </div>
               </a>
             </NextLink>
           </Navbar.Brand>
@@ -247,6 +150,10 @@ export default function NavigateBar() {
                       color='inherit'
                       css={{
                         minWidth: '100%',
+                        '&:hover': {
+                          color: '$pink600',
+                          fontWeight: 'bold',
+                        },
                       }}
                       onClick={() => {
                         setIsOpen(false);
@@ -260,7 +167,7 @@ export default function NavigateBar() {
               );
             })}
             <Navbar.CollapseItem>
-              <Button color='secondary' auto ghost>
+              <Button color='gradient' auto ghost shadow animated>
                 Download CV
               </Button>
             </Navbar.CollapseItem>
