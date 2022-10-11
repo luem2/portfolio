@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import NextLink from 'next/link';
-
 import { Button, Link, Navbar } from '@nextui-org/react';
 import { logo } from '/src/assets';
 import { Box } from '../Box';
-import { SocialMedia, SocialMediaCompacted } from './SocialMedia';
+import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons';
 import styles from '/styles/Navbar.module.css';
+import { FaTelegramPlane } from '/src/assets';
 
 export default function NavigateBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,12 +56,10 @@ export default function NavigateBar() {
           </NextLink>
         </Navbar.Brand>
         <Navbar.Content
-          enableCursorHighlight
           isCursorHighlightRounded
           activeColor='secondary'
           hideIn='md'
-          variant='highlight'
-          underlineHeight
+          variant='underline-rounded'
         >
           <NextLink href='/'>
             <Navbar.Link
@@ -103,12 +101,19 @@ export default function NavigateBar() {
               Contact
             </Navbar.Link>
           </NextLink>
-          <Button color='gradient' auto ghost shadow animated>
-            Download CV
-          </Button>
+          <a
+            href='/cv-luciano-pinol-fullstack.pdf'
+            alt='cv-lucianopinol'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <Button color='gradient' auto ghost shadow animated>
+              Download CV
+            </Button>
+          </a>
         </Navbar.Content>
-        <SocialMediaCompacted />
-        <SocialMedia />
+        <UtilityIconsCompacted />
+        <UtilityIcons />
         <Navbar.Content>
           <Navbar.Brand showIn={'md'}>
             <NextLink href='/'>
@@ -168,9 +173,23 @@ export default function NavigateBar() {
               );
             })}
             <Navbar.CollapseItem>
-              <Button color='gradient' auto ghost shadow animated>
-                Download CV
-              </Button>
+              <a
+                href='/cv-luciano-pinol-fullstack.pdf'
+                alt='cv-lucianopinol'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <Button
+                  iconRight={<FaTelegramPlane size={20} />}
+                  color='gradient'
+                  auto
+                  ghost
+                  shadow
+                  animated
+                >
+                  Download CV
+                </Button>
+              </a>
             </Navbar.CollapseItem>
           </Navbar.Collapse>
         </Navbar.Content>

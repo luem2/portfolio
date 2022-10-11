@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { Box } from './Box';
+import { Container } from '@nextui-org/react';
 
 export function Layout({ children, pageTitle, pageDescription }) {
   return (
@@ -17,7 +18,14 @@ export function Layout({ children, pageTitle, pageDescription }) {
           fontWeight: '$bold',
         }}
       >
-        {children}
+        <Container
+          display='flex'
+          direction='column'
+          justify='center'
+          alignItems='center'
+        >
+          {children}
+        </Container>
       </Box>
     </>
   );

@@ -6,16 +6,16 @@ import {
   AiFillGithub,
   BsFillSunFill,
   BsFillMoonFill,
-  GrMail,
+  FaTelegramPlane,
   IoShareSocialSharp,
+  VscColorMode,
+  MdGTranslate,
 } from '/src/assets';
 import { Popover } from '@nextui-org/react';
 import { useTheme as useNextTheme } from 'next-themes';
 import { useTheme } from '@nextui-org/react';
-import { Box } from '/src/components';
-import { VscColorMode } from 'react-icons/vsc';
 
-export function SocialMedia() {
+export function UtilityIcons() {
   const { setTheme } = useNextTheme();
   const { isDark } = useTheme();
   return (
@@ -103,10 +103,22 @@ export function SocialMedia() {
             style={{
               color: isDark ? 'white' : '#1F1F1F ',
             }}
-            href='mailto:dev@lucianopinol.com'
+            href='https://t.me/luem02'
+            target='_blank'
+            rel='noreferrer'
           >
-            <GrMail size={25} />
+            <FaTelegramPlane size={25} />
           </a>
+        </Navbar.Item>
+        <Navbar.Item>
+          <Popover>
+            <Popover.Trigger>
+              <MdGTranslate size={25} />
+            </Popover.Trigger>
+            <Popover.Content>
+              <button>Hola</button>
+            </Popover.Content>
+          </Popover>
         </Navbar.Item>
         <Navbar.Item>
           <Switch
@@ -123,7 +135,7 @@ export function SocialMedia() {
   );
 }
 
-export function SocialMediaCompacted() {
+export function UtilityIconsCompacted() {
   const { setTheme } = useNextTheme();
   const { isDark } = useTheme();
   return (
@@ -132,6 +144,12 @@ export function SocialMediaCompacted() {
         <Popover.Trigger>
           <Button color='gradient' auto ghost shadow animated>
             <IoShareSocialSharp size={20} />
+            <MdGTranslate
+              style={{
+                marginLeft: '10px',
+              }}
+              size={20}
+            />
             <VscColorMode
               style={{
                 marginLeft: '10px',
@@ -184,9 +202,11 @@ export function SocialMediaCompacted() {
               paddingRight: '10px',
               color: isDark ? 'white' : '#1F1F1F ',
             }}
-            href='mailto:dev@lucianopinol.com'
+            href='https://t.me/luem02'
+            target='_blank'
+            rel='noreferrer'
           >
-            <GrMail size={25} />
+            <FaTelegramPlane size={25} />
           </a>
           <Switch
             checked={isDark}
