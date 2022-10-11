@@ -24,12 +24,13 @@ export function MessageInput() {
   }, [value]);
 
   useEffect(() => {
-    window.sessionStorage.setItem('messageInput', JSON.stringify(value));
+    window.sessionStorage.setItem('messageInput', value);
   }, [value]);
 
   return (
     <Textarea
       {...bindings}
+      name='user_message'
       size='lg'
       bordered
       labelPlaceholder='Message'

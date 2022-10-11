@@ -25,12 +25,13 @@ export function EmailInput() {
   }, [value]);
 
   useEffect(() => {
-    window.sessionStorage.setItem('emailInput', JSON.stringify(value));
+    window.sessionStorage.setItem('emailInput', value);
   }, [value]);
 
   return (
     <Input
       {...bindings}
+      name='user_email'
       shadow={false}
       onClearClick={reset}
       status={helperEmail.color}

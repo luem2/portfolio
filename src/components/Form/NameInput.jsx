@@ -11,7 +11,7 @@ export function NameInput() {
   const helperName = useMemo(() => {
     if (!value) {
       return {
-        text: 'Enter your Full Name',
+        text: 'Enter your full name',
         color: 'secondary',
       };
     }
@@ -24,12 +24,13 @@ export function NameInput() {
   }, [value]);
 
   useEffect(() => {
-    window.sessionStorage.setItem('nameInput', JSON.stringify(value));
+    window.sessionStorage.setItem('nameInput', value);
   }, [value]);
 
   return (
     <Input
       {...bindings}
+      name='user_name'
       shadow={false}
       onClearClick={reset}
       status={helperName.color}

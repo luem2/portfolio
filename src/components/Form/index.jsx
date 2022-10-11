@@ -1,20 +1,36 @@
 import React, { useState } from 'react';
-import { Button, Input, Spacer, Text, Textarea } from '@nextui-org/react';
-import { Modal } from '@nextui-org/react';
+import emailjs from '@emailjs/browser';
+import { Button, Spacer, Text } from '@nextui-org/react';
 import { EmailInput } from './EmailInput';
 import { NameInput } from './NameInput';
 import { MessageInput } from './MessageInput';
 import { FaTelegramPlane } from '/src/assets';
+import { ErrorModal } from './ErrorModal';
+import { SuccessModal } from './SuccessModal';
 
 export function Form() {
-  const [visible, setVisible] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handler = () => {
-    setVisible(true);
-  };
+  const handleSubmit = () => {
+    const name = globalThis.sessionStorage.getItem('nameInput');
+    const email = globalThis.sessionStorage.getItem('emailInput');
+    const message = globalThis.sessionStorage.getItem('messageInput');
+    const form = { user_name: name, user_email: email, user_message: message };
 
-  const closeHandler = () => {
-    setVisible(false);
+    const emailValidate = email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
+
+    if (name.length <= 5 || emailValidate === null || message.length <= 15) {
+      return setError(true);
+    }
+
+    emailjs
+      .send('service_1lj00om', 'template_ww76j0t', form, '9asy4anV7AwZnUZZE')
+      .then(result =>
+        console.log('Form sent successfully', { status: result.status, form })
+      )
+      .catch(err => console.error(err));
+    setSuccess(true);
   };
 
   return (
@@ -26,11 +42,13 @@ export function Form() {
       <Spacer y={3.0} />
       <MessageInput />
       <Spacer y={2} />
+
       <Button
         css={{
           backgroundColor: '$pink700',
+          zIndex: '$1',
         }}
-        onClick={handler}
+        onClick={handleSubmit}
         type='submit'
         icon={<FaTelegramPlane size={20} />}
         auto
@@ -38,11 +56,9 @@ export function Form() {
         <Text weight={'bold'} color='white'>
           Submit
         </Text>
-        <Modal open={visible} onClose={closeHandler}>
-          <Modal.Header>Thanks for contact me</Modal.Header>
-          <Modal.Body>Very soon i will responded you UWU</Modal.Body>
-        </Modal>
       </Button>
+      <SuccessModal success={[success, setSuccess]} />
+      <ErrorModal error={[error, setError]} />
     </>
   );
 }

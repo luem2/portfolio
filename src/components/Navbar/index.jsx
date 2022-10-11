@@ -6,11 +6,17 @@ import { logo } from '/src/assets';
 import { Box } from '../Box';
 import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons';
 import styles from '/styles/Navbar.module.css';
-import { FaTelegramPlane } from '/src/assets';
 
 export default function NavigateBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState('/');
+  const hoverStyle = {
+    minWidth: '100%',
+    '&:hover': {
+      color: '$pink600',
+      fontWeight: 'bold',
+    },
+  };
 
   const collapseItems = ['Home', 'About', 'Tech Stack', 'Projects', 'Contact'];
 
@@ -65,6 +71,7 @@ export default function NavigateBar() {
             <Navbar.Link
               onClick={() => setActive('/')}
               isActive={active === '/'}
+              css={hoverStyle}
             >
               Home
             </Navbar.Link>
@@ -73,6 +80,7 @@ export default function NavigateBar() {
             <Navbar.Link
               onClick={() => setActive('about')}
               isActive={active === 'about'}
+              css={hoverStyle}
             >
               About
             </Navbar.Link>
@@ -81,6 +89,13 @@ export default function NavigateBar() {
             <Navbar.Link
               onClick={() => setActive('tech-stack')}
               isActive={active === 'tech-stack'}
+              css={{
+                minWidth: '100%',
+                '&:hover': {
+                  color: '$pink600',
+                  fontWeight: 'bold',
+                },
+              }}
             >
               Tech Stack
             </Navbar.Link>
@@ -89,6 +104,7 @@ export default function NavigateBar() {
             <Navbar.Link
               onClick={() => setActive('projects')}
               isActive={active === 'projects'}
+              css={hoverStyle}
             >
               Projects
             </Navbar.Link>
@@ -97,6 +113,7 @@ export default function NavigateBar() {
             <Navbar.Link
               onClick={() => setActive('contact')}
               isActive={active === 'contact'}
+              css={hoverStyle}
             >
               Contact
             </Navbar.Link>
@@ -146,21 +163,12 @@ export default function NavigateBar() {
                 <Navbar.CollapseItem
                   key={item}
                   activeColor='secondary'
-                  css={{
-                    color: index === collapseItems.length - 1 ? 'warning' : '',
-                  }}
                   isActive={active === itemLink}
                 >
                   <NextLink href={`${itemLink}`}>
                     <Link
                       color='inherit'
-                      css={{
-                        minWidth: '100%',
-                        '&:hover': {
-                          color: '$pink600',
-                          fontWeight: 'bold',
-                        },
-                      }}
+                      css={hoverStyle}
                       onClick={() => {
                         setIsOpen(false);
                         setActive(itemLink);
@@ -179,14 +187,7 @@ export default function NavigateBar() {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <Button
-                  iconRight={<FaTelegramPlane size={20} />}
-                  color='gradient'
-                  auto
-                  ghost
-                  shadow
-                  animated
-                >
+                <Button color='gradient' auto ghost shadow animated>
                   Download CV
                 </Button>
               </a>
