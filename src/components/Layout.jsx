@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { Box } from './Box';
 import { Container } from '@nextui-org/react';
 
-export function Layout({ children, pageTitle, pageDescription }) {
+export function Layout({ children, pageTitle, pageDescription, ...props }) {
   return (
     <>
       <Head>
@@ -23,6 +23,7 @@ export function Layout({ children, pageTitle, pageDescription }) {
           direction='column'
           justify='center'
           alignItems='center'
+          {...props}
         >
           {children}
         </Container>

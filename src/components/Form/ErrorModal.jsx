@@ -1,27 +1,31 @@
 import React from 'react';
-import { Modal } from '@nextui-org/react';
+import { Button, Modal, Text } from '@nextui-org/react';
 
 export function ErrorModal({ error }) {
   const [visible, setVisible] = error;
 
   return (
     <>
-      <Modal
-        animated
-        closeButton={true}
-        blur
-        open={visible}
-        onClose={() => setVisible(false)}
-      >
-        <Modal.Header>There are Errors in the form ❌</Modal.Header>
-        <Modal.Body
-          css={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          Please fix the errors...
+      <Modal closeButton animated blur open={visible} onClose={setVisible}>
+        <Modal.Header>
+          <Text b size={18}>
+            There are Errors in the form ❌
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          <Text
+            b
+            css={{
+              alignSelf: 'center',
+            }}
+          >
+            Please fix them to continue...
+          </Text>
+          <Button color='error' auto onClick={() => setVisible(false)}>
+            <Text b size={16}>
+              Return
+            </Text>
+          </Button>
         </Modal.Body>
       </Modal>
     </>

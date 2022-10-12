@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from '@nextui-org/react';
+import { Button, Modal, Text } from '@nextui-org/react';
 
 export function SuccessModal({ success }) {
   const [visible, setVisible] = success;
@@ -11,22 +11,26 @@ export function SuccessModal({ success }) {
 
   return (
     <>
-      <Modal
-        animated
-        closeButton={true}
-        blur
-        open={visible}
-        onClose={() => closeHandler()}
-      >
-        <Modal.Header>Thanks for contacting me ✅</Modal.Header>
-        <Modal.Body
-          css={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          I will answer you soon 😃
+      <Modal closeButton animated blur open={visible} onClose={closeHandler}>
+        <Modal.Header>
+          <Text b size={18}>
+            Thanks for contacting me ✅
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          <Text
+            b
+            css={{
+              alignSelf: 'center',
+            }}
+          >
+            I will answer you soon 😃
+          </Text>
+          <Button color='success' auto onClick={() => setVisible(false)}>
+            <Text b size={16}>
+              Return
+            </Text>
+          </Button>
         </Modal.Body>
       </Modal>
     </>

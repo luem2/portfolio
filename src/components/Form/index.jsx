@@ -35,6 +35,8 @@ export function Form() {
 
   return (
     <>
+      <SuccessModal success={[success, setSuccess]} />
+      <ErrorModal error={[error, setError]} />
       <Spacer y={1.5} />
       <NameInput />
       <Spacer y={3.0} />
@@ -57,8 +59,6 @@ export function Form() {
           Submit
         </Text>
       </Button>
-      <SuccessModal success={[success, setSuccess]} />
-      <ErrorModal error={[error, setError]} />
     </>
   );
 }

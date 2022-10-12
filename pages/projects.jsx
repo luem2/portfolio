@@ -1,5 +1,6 @@
+import { Text } from '@nextui-org/react';
 import React from 'react';
-import { Layout } from '../src/components';
+import { Layout, ProjectsCarousel } from '../src/components';
 
 export default function Projects() {
   return (
@@ -7,7 +8,10 @@ export default function Projects() {
       pageTitle='Projects'
       pageDescription='There are my projects i worked on this year'
     >
-      Projects
+      <Text css={{ marginBottom: '$15' }} h1 color='$blue800'>
+        Projects
+      </Text>
+      <ProjectsCarousel />
     </Layout>
   );
 }
