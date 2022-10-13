@@ -18,10 +18,11 @@ export function ProjectsCarousel() {
       gh: 'https://github.com/Luem2/pi-videogames',
       web: 'https://henrygames.lucianopinol.com/',
       logo: henryGameslogo,
-      description: '',
+      description:
+        ' Small application to search and create game information, filter by name, rating, genre and origin. For more information, check the repository.',
       technologies: {
-        backend: 'React, Redux, Express, NodeJS, PostgreSQL, Sequelize',
-        frontend: '',
+        frontend: 'React, Redux',
+        backend: ' Express, NodeJS, PostgreSQL, Sequelize',
       },
     },
     {
@@ -31,8 +32,14 @@ export function ProjectsCarousel() {
       gh: 'https://github.com/RGBTech-PF/rgbtech',
       web: 'https://rgbtech.vercel.app/',
       logo: rgbTechlogo,
-      description: '',
-      technologies: '',
+      description:
+        'E-commerce of technological products, focused on technology fans and gamers. It has an administrator panel, user database, access with Google and much more. For more information, check the repository.',
+      technologies: {
+        frontend:
+          'React, Redux Toolkit, ViteJS, Tailwind CSS, Json Web Token Decode, ChartJS, AnimateCSS, React Icons, React Toastify, SwiperJS, SweetAlert 2, React Select',
+        backend:
+          'Express, NodeJS, PostgreSQL, Sequelize, Nodemailer, Json Web Token, Cloudinary, Bcrypt',
+      },
     },
   ];
   return (
@@ -66,7 +73,7 @@ export function ProjectsCarousel() {
           },
         }}
       >
-        <SwiperSlide onClick={() => console.log('hola')}>
+        <SwiperSlide>
           <ProjectCard project={projectData[0]} />
         </SwiperSlide>
         <SwiperSlide>

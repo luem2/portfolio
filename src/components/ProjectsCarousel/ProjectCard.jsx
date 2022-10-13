@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
-import { Button, Card, Col, Text, Modal, Avatar } from '@nextui-org/react';
-import { AiFillGithub, BiLinkExternal, AiFillInfoCircle } from '/src/assets';
+import {
+  Button,
+  Card,
+  Col,
+  Text,
+  Modal,
+  Avatar,
+  Container,
+} from '@nextui-org/react';
+import { AiFillInfoCircle } from '/src/assets';
+import { ButtonGroup } from '../ButtonGroup';
+import Image from 'next/image';
 
 export function ProjectCard({ project }) {
   const [active, setActive] = useState(false);
@@ -38,27 +48,12 @@ export function ProjectCard({ project }) {
           '&:hover': {
             opacity: '1',
           },
+          '@mdMax': {
+            display: 'none',
+          },
         }}
       >
-        <Button.Group
-          css={{
-            marginRight: '$13',
-            gap: '$5',
-          }}
-          color='gradient'
-          ghost
-        >
-          <a href={project.gh} target='_blank' rel='noreferrer'>
-            <Button icon={<AiFillGithub size={20} />}>
-              <Text b>Repository</Text>
-            </Button>
-          </a>
-          <a href={project.web} target='_blank' rel='noreferrer'>
-            <Button icon={<BiLinkExternal size={20} />}>
-              <Text b>Website</Text>
-            </Button>
-          </a>
-        </Button.Group>
+        <ButtonGroup project={project} />
         <Button
           icon={<AiFillInfoCircle size={25} />}
           css={{
@@ -111,12 +106,40 @@ export function ProjectCard({ project }) {
           </Text>
         </Col>
       </Card.Footer>
-      <Modal blur closeButton open={active} onClose={modalHandler}>
+      <Modal scroll blur closeButton open={active} onClose={modalHandler}>
         <Modal.Header>
-          <Text>Buenas pa {project.name}</Text>
+          <Text size='$4xl' h3 b>
+            <Image
+              src={project.logo}
+              alt={project.alt}
+              width={100}
+              height={100}
+            />
+            <Container display='flex' justify='center' direction='column'>
+              {project.name}
+            </Container>
+          </Text>
         </Modal.Header>
-        <Modal.Body>HOLA PA</Modal.Body>
-        <Modal.Footer>Soy un Footardo pa </Modal.Footer>
+        <Modal.Body>
+          <Text b color='#b74aed'>
+            Description:
+          </Text>
+          <Text>{project.description}</Text>
+          <Text b color='#b74aed'>
+            Technologies:
+          </Text>
+          <li>
+            Frontend:
+            <Text>{project.technologies.frontend}</Text>
+          </li>
+          <li>
+            Backend:
+            <Text>{project.technologies.backend}</Text>
+          </li>
+        </Modal.Body>
+        <Modal.Footer>
+          <ButtonGroup project={project} />
+        </Modal.Footer>
       </Modal>
     </Card>
   );
