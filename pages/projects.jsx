@@ -1,6 +1,6 @@
-import { Text } from '@nextui-org/react';
 import React from 'react';
 import { Layout, ProjectsCarousel } from '../src/components';
+import { Text } from '@nextui-org/react';
 
 export default function Projects() {
   return (

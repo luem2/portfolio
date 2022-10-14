@@ -7,10 +7,10 @@ import {
   Modal,
   Avatar,
   Container,
+  Image,
 } from '@nextui-org/react';
 import { AiFillInfoCircle } from '/src/assets';
 import { ButtonGroup } from '../ButtonGroup';
-import Image from 'next/image';
 
 export function ProjectCard({ project }) {
   const [active, setActive] = useState(false);
@@ -110,7 +110,7 @@ export function ProjectCard({ project }) {
         <Modal.Header>
           <Text size='$4xl' h3 b>
             <Image
-              src={project.logo}
+              src={project.logo.default.src}
               alt={project.alt}
               width={100}
               height={100}
