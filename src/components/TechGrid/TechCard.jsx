@@ -26,6 +26,17 @@ export function TechCard({ tech }) {
           width={80}
           height={80}
         />
+        <Text
+          css={{
+            marginTop: '$3',
+            placeSelf: 'center',
+          }}
+          em
+          showIn='xs'
+          b
+        >
+          {tech.name}
+        </Text>
       </Card.Body>
     </Card>
   );

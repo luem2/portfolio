@@ -7,9 +7,10 @@ import { Box } from '../Box';
 import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons';
 import styles from '/styles/Navbar.module.css';
 
-export default function NavigateBar() {
+export default function NavigateBar({ activeLink }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState('/');
+  const [active, setActive] = activeLink;
+
   const hoverStyle = {
     minWidth: '100%',
     '&:hover': {
@@ -26,7 +27,7 @@ export default function NavigateBar() {
     } else {
       setActive(window.location.pathname.slice(1));
     }
-  }, []);
+  }, [setActive]);
 
   return (
     <Box
@@ -149,7 +150,7 @@ export default function NavigateBar() {
             </NextLink>
           </Navbar.Brand>
           <Navbar.Collapse isOpen={isOpen}>
-            {collapseItems.map((item, index) => {
+            {collapseItems.map(item => {
               let itemLink;
 
               if (item === 'Home') {

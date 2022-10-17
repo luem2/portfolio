@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
@@ -7,6 +8,8 @@ import { darkTheme, lightTheme } from '../themes';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
+  const [active, setActive] = useState('/');
+
   return (
     <NextThemesProvider
       defaultTheme='system'
@@ -17,8 +20,8 @@ function MyApp({ Component, pageProps }) {
       }}
     >
       <NextUIProvider theme={darkTheme}>
-        <Navbar />
-        <Component {...pageProps} />
+        <Navbar activeLink={[active, setActive]} />
+        <Component {...pageProps} activeLink={[active, setActive]} />
       </NextUIProvider>
     </NextThemesProvider>
   );

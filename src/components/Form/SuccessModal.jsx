@@ -1,12 +1,16 @@
 import React from 'react';
 import { Button, Modal, Text } from '@nextui-org/react';
+import { useRouter } from 'next/router';
 
-export function SuccessModal({ success }) {
+export function SuccessModal({ success, activeLink }) {
   const [visible, setVisible] = success;
+  const setActive = activeLink[1];
+  const router = useRouter();
 
   const closeHandler = () => {
     setVisible(false);
-    globalThis.location.href = '/';
+    router.push('/');
+    setActive('/');
   };
 
   return (

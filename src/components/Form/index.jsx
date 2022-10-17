@@ -8,7 +8,7 @@ import { FaTelegramPlane } from '/src/assets';
 import { ErrorModal } from './ErrorModal';
 import { SuccessModal } from './SuccessModal';
 
-export function Form() {
+export function Form({ activeLink }) {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
 
@@ -35,7 +35,7 @@ export function Form() {
 
   return (
     <>
-      <SuccessModal success={[success, setSuccess]} />
+      <SuccessModal activeLink={activeLink} success={[success, setSuccess]} />
       <ErrorModal error={[error, setError]} />
       <Spacer y={1.5} />
       <NameInput />

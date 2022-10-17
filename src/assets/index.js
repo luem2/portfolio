@@ -26,3 +26,5 @@ export * as nodejsLogo from './imgs/nodejs.png';
 export * as expressjsLogo from './imgs/express.svg';
 export * as postgresqlLogo from './imgs/postgresql.png';
 export * as sequelizeLogo from './imgs/sequelize.png';
+
+export * as photoProfile from './imgs/fotoprueba.jpg';

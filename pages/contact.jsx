@@ -4,7 +4,7 @@ import { Form } from '../src/components';
 import { GrMail } from '/src/assets';
 import { Layout } from '/src/components';
 
-export default function Contact() {
+export default function Contact({ activeLink }) {
   const { isDark } = useTheme();
 
   return (
@@ -16,7 +16,7 @@ export default function Contact() {
         Get in touch <GrMail color={isDark ? 'white' : 'black'} size={40} />
       </Text>
 
-      <Form />
+      <Form activeLink={activeLink} />
     </Layout>
   );
 }

@@ -25,6 +25,9 @@ export function TechGrid() {
           md={3}
         >
           <Tooltip
+            css={{
+              '@xsMax': { display: 'none' },
+            }}
             content={
               <Text color='white' b>
                 {tech.name}
