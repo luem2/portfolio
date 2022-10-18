@@ -3,6 +3,7 @@ export {
   AiFillLinkedin,
   AiFillGithub,
   AiFillInfoCircle,
+  AiOutlineComment,
 } from 'react-icons/ai';
 export { BsFillSunFill, BsFillMoonFill, BsTelegram } from 'react-icons/bs';
 export { BiLinkExternal } from 'react-icons/bi';

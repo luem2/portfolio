@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Layout } from '../src/components';
-import { Button, Image, Row, Text, useTheme } from '@nextui-org/react';
+import { Button, Image, Text, useTheme } from '@nextui-org/react';
 import { GrMail, FaRocket, photoProfile } from '/src/assets';
 import { useRouter } from 'next/router';
 
@@ -88,7 +88,7 @@ export default function About({ activeLink }) {
             b
           >
             Thank you for taking the time to read about me.
-            <br /> Lets keep talking, contact me!
+            <br /> Lets talk, contact me!
           </Text>
           <Box
             css={{

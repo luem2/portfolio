@@ -32,7 +32,7 @@ export function TechCard({ tech }) {
             placeSelf: 'center',
           }}
           em
-          showIn='xs'
+          showIn='md'
           b
         >
           {tech.name}

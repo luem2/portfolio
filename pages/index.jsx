@@ -1,6 +1,6 @@
-import { Button, Col, Text } from '@nextui-org/react';
+import { Button, Row, Text } from '@nextui-org/react';
 import { Layout } from '../src/components';
-import { BiLinkExternal } from '/src/assets';
+import { AiOutlineComment, BiLinkExternal } from '/src/assets';
 import { useRouter } from 'next/router';
 
 export default function Home({ activeLink }) {
@@ -12,25 +12,34 @@ export default function Home({ activeLink }) {
       pageTitle='Home'
       pageDescription='This is the home page of Luciano Piñol Portfolio.'
     >
-      <Col>
-        <Text>Hi, Welcome! I am</Text>
-        <Text
-          h1
-          size={80}
-          css={{
-            textAlign: 'center',
-            marginTop: 40,
-            textGradient: '45deg, $blue600 -20%, $pink600 50%',
-          }}
-        >
-          Luciano Piñol
-        </Text>
-        <Text textAlign weight='medium'>
-          Hi, im a Full Stack Developer based in Entre Ríos, Argentina.
-        </Text>
+      <Text
+        h1
+        size={80}
+        css={{
+          textAlign: 'center',
+          textGradient: '45deg, $blue600 -20%, $pink600 50%',
+        }}
+      >
+        Luciano Piñol
+      </Text>
+      <Text
+        css={{
+          textAlign: 'center',
+        }}
+        b
+      >
+        Full Stack Developer based in Entre Ríos, Argentina.
+      </Text>
+      <Row
+        justify='center'
+        css={{
+          gap: '$10',
+        }}
+      >
         <Button
           css={{
             zIndex: '$1',
+            marginTop: '$10',
           }}
           auto
           onClick={() => {
@@ -40,9 +49,28 @@ export default function Home({ activeLink }) {
           icon={<BiLinkExternal size={25} />}
           color='secondary'
         >
-          <Text>Know me!</Text>
+          <Text b size={16} color='white'>
+            Know me!
+          </Text>
         </Button>
-      </Col>
+        <Button
+          css={{
+            zIndex: '$1',
+            marginTop: '$10',
+          }}
+          auto
+          onClick={() => {
+            router.push('/contact');
+            setActive('contact');
+          }}
+          icon={<AiOutlineComment size={25} />}
+          color='primary'
+        >
+          <Text b size={16} color='white'>
+            Lets Talk
+          </Text>
+        </Button>
+      </Row>
     </Layout>
   );
 }

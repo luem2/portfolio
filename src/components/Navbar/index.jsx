@@ -160,6 +160,7 @@ export default function NavigateBar({ activeLink }) {
               } else {
                 itemLink = item[0].toLowerCase() + item.slice(1);
               }
+
               return (
                 <Navbar.CollapseItem
                   key={item}
@@ -169,7 +170,6 @@ export default function NavigateBar({ activeLink }) {
                   <NextLink href={`${itemLink}`}>
                     <Link
                       color='inherit'
-                      css={hoverStyle}
                       onClick={() => {
                         setIsOpen(false);
                         setActive(itemLink);

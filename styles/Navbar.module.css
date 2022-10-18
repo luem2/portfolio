@@ -6,3 +6,10 @@
   opacity: 0.7;
   transform: rotate(10deg);
 }
+
+@media (max-width: 1200px) {
+  .logo:hover {
+    opacity: 1;
+    transform: none;
+  }
+}

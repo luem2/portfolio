@@ -110,14 +110,13 @@ export function UtilityIcons() {
             <FaTelegramPlane size={25} />
           </a>
         </Navbar.Item>
+        {/* Translate Fix that */}
         <Navbar.Item>
           <Popover>
             <Popover.Trigger>
               <MdGTranslate size={25} />
             </Popover.Trigger>
-            <Popover.Content>
-              <button>Hola</button>
-            </Popover.Content>
+            <Popover.Content>{/* <button>Hola</button> */}</Popover.Content>
           </Popover>
         </Navbar.Item>
         <Navbar.Item>
