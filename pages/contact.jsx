@@ -3,6 +3,7 @@ import { Text, useTheme } from '@nextui-org/react';
 import { Form } from '../src/components';
 import { GrMail } from '/src/assets';
 import { Layout } from '/src/components';
+import { motion } from 'framer-motion';
 
 export default function Contact({ activeLink }) {
   const { isDark } = useTheme();
@@ -12,11 +13,22 @@ export default function Contact({ activeLink }) {
       pageTitle='Contact'
       pageDescription='You can contact me with the follow methods'
     >
-      <Text h1 color='$pink600'>
-        Get in touch <GrMail color={isDark ? 'white' : 'black'} size={40} />
-      </Text>
-
-      <Form activeLink={activeLink} />
+      <motion.h1
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.4 }}
+      >
+        <Text h1 color='$pink600'>
+          Get in touch <GrMail color={isDark ? 'white' : 'black'} size={40} />
+        </Text>
+      </motion.h1>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4 }}
+      >
+        <Form activeLink={activeLink} />
+      </motion.div>
     </Layout>
   );
 }

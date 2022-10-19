@@ -1,7 +1,9 @@
-import { Button, Row, Text } from '@nextui-org/react';
+import { Button, Row, Text, Image } from '@nextui-org/react';
 import { Layout } from '../src/components';
 import { AiOutlineComment, BiLinkExternal } from '/src/assets';
 import { useRouter } from 'next/router';
+import { logo2 } from '/src/assets';
+import { motion } from 'framer-motion';
 
 export default function Home({ activeLink }) {
   const setActive = activeLink[1];
@@ -12,65 +14,99 @@ export default function Home({ activeLink }) {
       pageTitle='Home'
       pageDescription='This is the home page of Luciano Piñol Portfolio.'
     >
-      <Text
-        h1
-        size={80}
-        css={{
-          textAlign: 'center',
-          textGradient: '45deg, $blue600 -20%, $pink600 50%',
-        }}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
       >
-        Luciano Piñol
-      </Text>
-      <Text
-        css={{
-          textAlign: 'center',
-        }}
-        b
-      >
-        Full Stack Developer based in Entre Ríos, Argentina.
-      </Text>
-      <Row
-        justify='center'
-        css={{
-          gap: '$10',
-        }}
-      >
-        <Button
+        <Text
+          h1
+          size={80}
           css={{
-            zIndex: '$1',
-            marginTop: '$10',
+            textAlign: 'center',
+            textGradient: '45deg, $blue600 -20%, $pink600 50%',
+            '@xsMax': {
+              fontSize: '$5xl',
+            },
           }}
-          auto
-          onClick={() => {
-            router.push('/about');
-            setActive('about');
-          }}
-          icon={<BiLinkExternal size={25} />}
-          color='secondary'
         >
-          <Text b size={16} color='white'>
-            Know me!
-          </Text>
-        </Button>
-        <Button
+          Luciano Piñol
+        </Text>
+        <Text
+          h4
           css={{
-            zIndex: '$1',
-            marginTop: '$10',
+            display: 'flex',
+            textAlign: 'center',
+            placeSelf: 'center',
+            marginTop: '-1rem',
+            '@xsMax': {
+              fontSize: '$md',
+            },
           }}
-          auto
-          onClick={() => {
-            router.push('/contact');
-            setActive('contact');
-          }}
-          icon={<AiOutlineComment size={25} />}
-          color='primary'
         >
-          <Text b size={16} color='white'>
-            Lets Talk
-          </Text>
-        </Button>
-      </Row>
+          Full Stack Developer based in Entre Ríos, Argentina.
+        </Text>
+        <motion.div
+          style={{
+            marginTop: '3rem',
+            marginBottom: '1.5rem',
+          }}
+          animate={{
+            scale: [1, 2, 2, 1, 1],
+            rotate: [0, 0, 270, 270, 0],
+            borderRadius: ['20%', '20%', '50%', '50%', '20%'],
+          }}
+        >
+          <Image
+            src={logo2.default.src}
+            alt='logo-Luem'
+            width={200}
+            height={200}
+          />
+        </motion.div>
+
+        <Row
+          justify='center'
+          css={{
+            gap: '$10',
+          }}
+        >
+          <Button
+            css={{
+              zIndex: '$1',
+              marginTop: '$10',
+            }}
+            auto
+            onClick={() => {
+              router.push('/about');
+              setActive('about');
+            }}
+            icon={<BiLinkExternal size={25} />}
+            color='secondary'
+          >
+            <Text b size={16} color='white'>
+              Know me!
+            </Text>
+          </Button>
+          <Button
+            css={{
+              zIndex: '$1',
+              marginTop: '$10',
+            }}
+            auto
+            onClick={() => {
+              router.push('/contact');
+              setActive('contact');
+            }}
+            icon={<AiOutlineComment size={25} />}
+            color='primary'
+          >
+            <Text b size={16} color='white'>
+              Lets Talk
+            </Text>
+          </Button>
+        </Row>
+      </motion.div>
     </Layout>
   );
 }
