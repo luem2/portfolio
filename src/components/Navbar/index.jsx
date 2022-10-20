@@ -5,6 +5,7 @@ import { Button, Link, Navbar } from '@nextui-org/react';
 import { logo } from '/src/assets';
 import { Box } from '../Box';
 import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons';
+import { FormattedMessage } from 'react-intl';
 import styles from '/styles/Navbar.module.css';
 
 export default function NavigateBar({ activeLink }) {
@@ -74,7 +75,7 @@ export default function NavigateBar({ activeLink }) {
               isActive={active === '/'}
               css={hoverStyle}
             >
-              Home
+              <FormattedMessage id='navbar.home' defaultMessage='Home' />
             </Navbar.Link>
           </NextLink>
           <NextLink href='/about'>
@@ -83,7 +84,7 @@ export default function NavigateBar({ activeLink }) {
               isActive={active === 'about'}
               css={hoverStyle}
             >
-              About
+              <FormattedMessage id='navbar.about' defaultMessage='About' />
             </Navbar.Link>
           </NextLink>
           <NextLink href='/tech-stack'>
@@ -98,7 +99,10 @@ export default function NavigateBar({ activeLink }) {
                 },
               }}
             >
-              Tech Stack
+              <FormattedMessage
+                id='navbar.techStack'
+                defaultMessage='Tech Stack'
+              />
             </Navbar.Link>
           </NextLink>
           <NextLink href='/projects'>
@@ -107,7 +111,10 @@ export default function NavigateBar({ activeLink }) {
               isActive={active === 'projects'}
               css={hoverStyle}
             >
-              Projects
+              <FormattedMessage
+                id='navbar.projects'
+                defaultMessage='Projects'
+              />
             </Navbar.Link>
           </NextLink>
           <NextLink href='/contact'>
@@ -116,7 +123,7 @@ export default function NavigateBar({ activeLink }) {
               isActive={active === 'contact'}
               css={hoverStyle}
             >
-              Contact
+              <FormattedMessage id='navbar.contact' defaultMessage='Contact' />
             </Navbar.Link>
           </NextLink>
           <a
@@ -126,7 +133,7 @@ export default function NavigateBar({ activeLink }) {
             rel='noopener noreferrer'
           >
             <Button color='gradient' auto ghost shadow animated>
-              Download CV
+              <FormattedMessage id='navbar.cv' defaultMessage='Download CV' />
             </Button>
           </a>
         </Navbar.Content>
@@ -152,13 +159,17 @@ export default function NavigateBar({ activeLink }) {
           <Navbar.Collapse isOpen={isOpen}>
             {collapseItems.map(item => {
               let itemLink;
+              let itemId;
 
               if (item === 'Home') {
                 itemLink = '/';
+                itemId = 'home';
               } else if (item === 'Tech Stack') {
                 itemLink = '/tech-stack';
+                itemId = 'techStack';
               } else {
                 itemLink = item[0].toLowerCase() + item.slice(1);
+                itemId = item[0].toLowerCase() + item.slice(1);
               }
 
               return (
@@ -175,7 +186,10 @@ export default function NavigateBar({ activeLink }) {
                         setActive(itemLink);
                       }}
                     >
-                      {item}
+                      <FormattedMessage
+                        id={`navbar.${itemId}`}
+                        defaultMessage={`${item}`}
+                      />
                     </Link>
                   </NextLink>
                 </Navbar.CollapseItem>
@@ -189,7 +203,10 @@ export default function NavigateBar({ activeLink }) {
                 rel='noopener noreferrer'
               >
                 <Button color='gradient' auto ghost shadow animated>
-                  Download CV
+                  <FormattedMessage
+                    id='navbar.cv'
+                    defaultMessage='Download CV'
+                  />
                 </Button>
               </a>
             </Navbar.CollapseItem>

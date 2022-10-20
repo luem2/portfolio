@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import { Textarea, useInput } from '@nextui-org/react';
+import { FormattedMessage } from 'react-intl';
 
 export function MessageInput() {
   const { value, reset, bindings } = useInput('');

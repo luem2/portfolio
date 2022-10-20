@@ -1,0 +1,34 @@
+{
+  "navbar.home": "Inicio",
+  "navbar.about": "Sobre mi",
+  "navbar.techStack": "Tecnologías",
+  "navbar.projects": "Proyectos",
+  "navbar.contact": "Contacto",
+  "navbar.cv": "Descargar CV",
+
+  "index.presentation": "Desarrollador Full Stack nacido en Entre Rios, Argentina.",
+  "index.knowMe": "Conóceme!",
+  "index.letsTalk": "Hablemos",
+
+  "about.title": "Sobre mi",
+  "about.h2": "Hola! Cómo estás? Me presento...",
+  "about.p1": "Soy un Desarrollador Full Stack, en constante aprendizaje para poder realizar en cada trabajo, un resultado de mayor calidad. Me gusta experimentar y aprender sobre nuevas tecnologias, lenguajes de programación, sistemas operativos y nuevas herramientas. Considero que puedo adaptarme facilmente. Tengo preferencia por el backend, aunque el frontend me gusta mucho tambien. Me interesa la blockchain, la web3, la criptografia y la ciberseguridad, en el cual pienso en un futuro cercano capacitarme para ello.",
+  "about.p2": "Gracias por tomarte el tiempo de leer sobre mi.",
+  "about.p3": "Hablemos, contáctame!",
+  "about.getInTouch": "Contáctame",
+  "about.seeProjects": "Mire mis proyectos!",
+
+  "techStack.title": "Tecnologías",
+
+  "projects.title": "Proyectos",
+  "projects.repository": "Repositorio",
+  "projects.website": "Sitio Web",
+  "projects.moreInfo": "Más información",
+  "projects.description.title": "Descripción:",
+  "projects.technologies.title": "Tecnologías:",
+  "projects.henryGames.description": "Pequeña aplicación para buscar y crear información sobre juegos, filtrar por nombre, valoración, género y origen. Para más información revisar el repositorio.",
+  "projects.rgbTech.description": "E-commerce de productos tecnológicos, enfocado para los aficionados de la tecnología y a los gamers. Cuenta con panel de administrador, base de datos para usuarios, acceso con Google y mucho más. Para más información revisar el repositorio.",
+
+  "contact.title": "Contáctame",
+  "contact.submit": "Enviar"
+}

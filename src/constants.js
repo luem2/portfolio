@@ -106,6 +106,7 @@ export const techstack = [
 
 export const projectData = [
   {
+    id: 'henryGames',
     name: 'Henry Games',
     src: henryGames,
     alt: 'henry-games',
@@ -113,13 +114,14 @@ export const projectData = [
     web: 'https://henrygames.lucianopinol.com/',
     logo: henryGamesLogo,
     description:
-      ' Small application to search and create game information, filter by name, rating, genre and origin. For more information, check the repository.',
+      'Small application to search and create game information, filter by name, rating, genre and origin. For more information, check the repository.',
     technologies: {
       frontend: 'React, Redux',
       backend: ' Express, NodeJS, PostgreSQL, Sequelize',
     },
   },
   {
+    id: 'rgbTech',
     name: 'RGBTech',
     src: rgbTech,
     alt: 'rgb-tech',

@@ -14,6 +14,8 @@ import {
 import { Popover } from '@nextui-org/react';
 import { useTheme as useNextTheme } from 'next-themes';
 import { useTheme } from '@nextui-org/react';
+import { LanguageSwitch } from './LanguageSwitch';
+import { Box } from '../Box';
 
 export function UtilityIcons() {
   const { setTheme } = useNextTheme();
@@ -110,14 +112,8 @@ export function UtilityIcons() {
             <FaTelegramPlane size={25} />
           </a>
         </Navbar.Item>
-        {/* Translate Fix that */}
         <Navbar.Item>
-          <Popover>
-            <Popover.Trigger>
-              <MdGTranslate size={25} />
-            </Popover.Trigger>
-            <Popover.Content>{/* <button>Hola</button> */}</Popover.Content>
-          </Popover>
+          <LanguageSwitch />
         </Navbar.Item>
         <Navbar.Item>
           <Switch
@@ -160,6 +156,7 @@ export function UtilityIconsCompacted() {
 
         <Popover.Content
           css={{
+            border: isDark ? '1px solid #0072f5' : '1px solid #9750b0',
             padding: '$5',
           }}
         >
@@ -207,14 +204,31 @@ export function UtilityIconsCompacted() {
           >
             <FaTelegramPlane size={25} />
           </a>
-          <Switch
-            checked={isDark}
-            color='secondary'
-            size='md'
-            iconOff={<BsFillMoonFill />}
-            iconOn={<BsFillSunFill />}
-            onChange={e => setTheme(e.target.checked ? 'dark' : 'light')}
-          />
+          <Box
+            css={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: '$5',
+              gap: '$5',
+            }}
+          >
+            <div
+              style={{
+                marginTop: '0.2rem',
+              }}
+            >
+              <LanguageSwitch />
+            </div>
+            <Switch
+              checked={isDark}
+              color='secondary'
+              size='md'
+              iconOff={<BsFillMoonFill />}
+              iconOn={<BsFillSunFill />}
+              onChange={e => setTheme(e.target.checked ? 'dark' : 'light')}
+            />
+          </Box>
         </Popover.Content>
       </Popover>
     </Navbar.Content>

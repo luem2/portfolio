@@ -1,9 +1,11 @@
+import React from 'react';
 import { Button, Row, Text, Image } from '@nextui-org/react';
 import { Layout } from '../src/components';
 import { AiOutlineComment, BiLinkExternal } from '/src/assets';
 import { useRouter } from 'next/router';
 import { logo2 } from '/src/assets';
 import { motion } from 'framer-motion';
+import { FormattedMessage } from 'react-intl';
 
 export default function Home({ activeLink }) {
   const setActive = activeLink[1];
@@ -44,7 +46,10 @@ export default function Home({ activeLink }) {
             },
           }}
         >
-          Full Stack Developer based in Entre Ríos, Argentina.
+          <FormattedMessage
+            id='index.presentation'
+            defaultMessage='Full Stack Developer based in Entre Rios, Argentina.'
+          />
         </Text>
         <motion.div
           style={{
@@ -85,7 +90,7 @@ export default function Home({ activeLink }) {
             color='secondary'
           >
             <Text b size={16} color='white'>
-              Know me!
+              <FormattedMessage id='index.knowMe' defaultMessage='Know me!' />
             </Text>
           </Button>
           <Button
@@ -102,7 +107,10 @@ export default function Home({ activeLink }) {
             color='primary'
           >
             <Text b size={16} color='white'>
-              Lets Talk
+              <FormattedMessage
+                id='index.letsTalk'
+                defaultMessage='Lets Talk'
+              />
             </Text>
           </Button>
         </Row>

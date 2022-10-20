@@ -7,6 +7,7 @@ import { MessageInput } from './MessageInput';
 import { FaTelegramPlane } from '/src/assets';
 import { ErrorModal } from './ErrorModal';
 import { SuccessModal } from './SuccessModal';
+import { FormattedMessage } from 'react-intl';
 
 export function Form({ activeLink }) {
   const [success, setSuccess] = useState(false);
@@ -56,7 +57,7 @@ export function Form({ activeLink }) {
         auto
       >
         <Text weight={'bold'} color='white'>
-          Submit
+          <FormattedMessage id='contact.submit' defaultMessage='Submit' />
         </Text>
       </Button>
     </>

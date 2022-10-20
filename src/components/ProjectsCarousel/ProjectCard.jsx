@@ -12,6 +12,7 @@ import {
 import { AiFillInfoCircle } from '/src/assets';
 import { ButtonGroup } from '../ButtonGroup';
 import { motion } from 'framer-motion';
+import { FormattedMessage } from 'react-intl';
 
 export function ProjectCard({ project }) {
   const [active, setActive] = useState(false);
@@ -92,7 +93,12 @@ export function ProjectCard({ project }) {
             animated
             onClick={() => modalHandler()}
           >
-            <Text b>More info</Text>
+            <Text b>
+              <FormattedMessage
+                id='projects.moreInfo'
+                defaultMessage='More info'
+              />
+            </Text>
           </Button>
         </Card.Body>
         <Card.Image
@@ -143,11 +149,22 @@ export function ProjectCard({ project }) {
           </Modal.Header>
           <Modal.Body>
             <Text b color='#b74aed'>
-              Description:
+              <FormattedMessage
+                id='projects.description.title'
+                defaultMessage='Description:'
+              />
             </Text>
-            <Text>{project.description}</Text>
+            <Text>
+              <FormattedMessage
+                id={`projects.${project.id}.description`}
+                defaultMessage={project.description}
+              />
+            </Text>
             <Text b color='#b74aed'>
-              Technologies:
+              <FormattedMessage
+                id='projects.technologies.title'
+                defaultMessage='Technologies:'
+              />
             </Text>
             <li>
               Frontend:

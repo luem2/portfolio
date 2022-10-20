@@ -1,0 +1,34 @@
+{
+  "navbar.home": "Home",
+  "navbar.about": "About",
+  "navbar.techStack": "Tech Stack",
+  "navbar.projects": "Projects",
+  "navbar.contact": "Contact",
+  "navbar.cv": "Download CV",
+
+  "index.presentation": "Full Stack Developer based in Entre Rios, Argentina.",
+  "index.knowMe": "Know me!",
+  "index.letsTalk": "Lets Talk",
+
+  "about.title": "About me",
+  "about.h2": "Hi there! Let me introduce myself...",
+  "about.p1": "I am a Full Stack Developer, constantly learning to be able to perform a higher quality result in each job. I like to experiment and learn about new technologies, programming languages, operating systems and new tools. I think I can adapt easily. I have a preference for the backend, although I like the frontend a lot too. I am interested in blockchain, web3, cryptography and cybersecurity, in which I plan to train for it in the near future",
+  "about.p2": "Thank you for taking the time to read about me.",
+  "about.p3": "Lets talk, contact me!",
+  "about.getInTouch": "Get in Touch!",
+  "about.seeProjects": "See my projects!",
+
+  "techStack.title": "Tech Stack",
+
+  "projects.title": "Projects",
+  "projects.repository": "Repository",
+  "projects.website": "Website",
+  "projects.moreInfo": "More info",
+  "projects.description.title": "Description:",
+  "projects.technologies.title": "Technologies:",
+  "projects.henryGames.description": "Small application to search and create game information, filter by name, rating, genre and origin. For more information, check the repository.",
+  "projects.rgbTech.description": "E-commerce of technological products, focused on technology fans and gamers. It has an administrator panel, user database, access with Google and much more. For more information, check the repository.",
+
+  "contact.title": "Get in touch",
+  "contact.submit": "Submit"
+}
