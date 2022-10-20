@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { useInput } from '@nextui-org/react';
 import { Input } from '@nextui-org/react';
+import { FormattedMessage } from 'react-intl';
 
 export function EmailInput() {
   const { value, reset, bindings } = useInput('');
@@ -12,14 +13,29 @@ export function EmailInput() {
   const helperEmail = useMemo(() => {
     if (!value) {
       return {
-        text: 'Enter your email',
+        text: (
+          <FormattedMessage
+            id='form.emailInputDefault'
+            defaultMessage='Enter your email'
+          />
+        ),
         color: 'secondary',
       };
     }
 
     const isValid = validateEmail(value);
     return {
-      text: isValid ? 'Correct email' : 'Enter a valid email',
+      text: isValid ? (
+        <FormattedMessage
+          id='form.emailInputValid'
+          defaultMessage='Correct email'
+        />
+      ) : (
+        <FormattedMessage
+          id='form.emailInputInvalid'
+          defaultMessage='Enter a valid email'
+        />
+      ),
       color: isValid ? 'success' : 'error',
     };
   }, [value]);
@@ -40,7 +56,9 @@ export function EmailInput() {
       helperText={helperEmail.text}
       size='lg'
       type='email'
-      labelPlaceholder='Email'
+      labelPlaceholder={
+        <FormattedMessage id='form.emailPlaceholder' defaultMessage='Email' />
+      }
       bordered
       required
     />

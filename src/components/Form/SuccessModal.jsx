@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, Text } from '@nextui-org/react';
 import { useRouter } from 'next/router';
+import { FormattedMessage } from 'react-intl';
 
 export function SuccessModal({ success, activeLink }) {
   const [visible, setVisible] = success;
@@ -18,7 +19,10 @@ export function SuccessModal({ success, activeLink }) {
       <Modal closeButton animated blur open={visible} onClose={closeHandler}>
         <Modal.Header>
           <Text b size={18}>
-            Thanks for contacting me ✅
+            <FormattedMessage
+              id='modal.successTitle'
+              defaultMessage='Thanks for contacting me ✅'
+            />
           </Text>
         </Modal.Header>
         <Modal.Body>
@@ -28,11 +32,14 @@ export function SuccessModal({ success, activeLink }) {
               alignSelf: 'center',
             }}
           >
-            I will answer you soon 😃
+            <FormattedMessage
+              id='modal.successBody'
+              defaultMessage='I will answer you soon 😃'
+            />
           </Text>
           <Button color='success' auto onClick={() => setVisible(false)}>
             <Text b size={16}>
-              Return
+              <FormattedMessage id='modal.button' defaultMessage='Return' />
             </Text>
           </Button>
         </Modal.Body>

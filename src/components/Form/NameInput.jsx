@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { useInput } from '@nextui-org/react';
 import { Input } from '@nextui-org/react';
+import { FormattedMessage } from 'react-intl';
 
 export function NameInput() {
   const { value, reset, bindings } = useInput('');
@@ -11,14 +12,29 @@ export function NameInput() {
   const helperName = useMemo(() => {
     if (!value) {
       return {
-        text: 'Enter your full name',
+        text: (
+          <FormattedMessage
+            id='form.nameInputDefault'
+            defaultMessage='Enter your full name'
+          />
+        ),
         color: 'secondary',
       };
     }
 
     const isValid = validateName(value);
     return {
-      text: isValid ? 'Correct name' : 'At least 5 characters',
+      text: isValid ? (
+        <FormattedMessage
+          id='form.nameInputValid'
+          defaultMessage='Correct name'
+        />
+      ) : (
+        <FormattedMessage
+          id='form.nameInputInvalid'
+          defaultMessage='At least 5 characters'
+        />
+      ),
       color: isValid ? 'success' : 'error',
     };
   }, [value]);
@@ -39,7 +55,9 @@ export function NameInput() {
       helperText={helperName.text}
       size='lg'
       type='text'
-      labelPlaceholder='Name'
+      labelPlaceholder={
+        <FormattedMessage id='form.namePlaceholder' defaultMessage='Name' />
+      }
       bordered
       required
     />

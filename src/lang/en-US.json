@@ -30,5 +30,26 @@
   "projects.rgbTech.description": "E-commerce of technological products, focused on technology fans and gamers. It has an administrator panel, user database, access with Google and much more. For more information, check the repository.",
 
   "contact.title": "Get in touch",
-  "contact.submit": "Submit"
+  "contact.submit": "Submit",
+
+  "form.nameInputDefault": "Enter your full name",
+  "form.namePlaceholder": "Name",
+  "form.nameInputValid": "Correct name",
+  "form.nameInputInvalid": "At least 5 characters",
+
+  "form.emailInputDefault": "Enter your email",
+  "form.emailPlaceholder": "Email",
+  "form.emailInputValid": "Correct email",
+  "form.emailInputInvalid": "Enter a valid email",
+
+  "form.messageInputDefault": "Enter your message",
+  "form.messagePlaceholder": "Message",
+  "form.messageInputValid": "Correct message",
+  "form.messageInputInvalid": "At least 15 characters",
+
+  "modal.errorTitle": "There are Errors in the form ❌",
+  "modal.errorBody": "Please fix them to continue...",
+  "modal.successTitle": "Thanks for contacting me ✅",
+  "modal.successBody": "I will answer you soon 😃",
+  "modal.button": "Return"
 }

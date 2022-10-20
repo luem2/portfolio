@@ -12,14 +12,29 @@ export function MessageInput() {
   const helperMessage = useMemo(() => {
     if (!value) {
       return {
-        text: 'Enter your message',
+        text: (
+          <FormattedMessage
+            id='form.messageInputDefault'
+            defaultMessage='Enter your message'
+          />
+        ),
         color: 'secondary',
       };
     }
 
     const isValid = validateMessage(value);
     return {
-      text: isValid ? 'Correct message' : 'At least 15 characters',
+      text: isValid ? (
+        <FormattedMessage
+          id='form.messageInputValid'
+          defaultMessage='Correct message'
+        />
+      ) : (
+        <FormattedMessage
+          id='form.messageInputInvalid'
+          defaultMessage='At least 15 characters'
+        />
+      ),
       color: isValid ? 'success' : 'error',
     };
   }, [value]);
@@ -34,7 +49,12 @@ export function MessageInput() {
       name='user_message'
       size='lg'
       bordered
-      labelPlaceholder='Message'
+      labelPlaceholder={
+        <FormattedMessage
+          id='form.messagePlaceholder'
+          defaultMessage='Message'
+        />
+      }
       shadow={false}
       onClearClick={reset}
       status={helperMessage.color}
