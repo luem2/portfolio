@@ -74,6 +74,7 @@ export default function Home({ activeLink }) {
           justify='center'
           css={{
             gap: '$10',
+            marginBottom: '$15',
           }}
         >
           <Button

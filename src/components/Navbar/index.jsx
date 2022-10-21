@@ -6,6 +6,7 @@ import { logo } from '/src/assets';
 import { Box } from '../Box';
 import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons';
 import { FormattedMessage } from 'react-intl';
+// import { BurgerMenu } from '../BurgerMenu';
 import styles from '/styles/Navbar.module.css';
 
 export default function NavigateBar({ activeLink }) {
@@ -38,31 +39,43 @@ export default function NavigateBar({ activeLink }) {
       }}
     >
       <Navbar variant='sticky'>
+        {/* NEXTUI BURGER BUTTON */}
         <Navbar.Toggle
           isSelected={isOpen}
           onClick={() => setIsOpen(!isOpen)}
           showIn='md'
         />
-        <Navbar.Brand hideIn='md'>
-          <Navbar.Toggle
-            aria-label='toggle navigation'
-            onChange={() => !isOpen}
-            showIn='md'
-            onClick={() => setIsOpen(!isOpen)}
-          />
-          <NextLink href='/'>
-            <a>
-              <Image
-                className={styles.logo}
-                onClick={() => setActive('/')}
-                src={logo}
-                height={75}
-                width={75}
-                alt='Luem Logo'
-              />
-            </a>
-          </NextLink>
-        </Navbar.Brand>
+
+        {/* PERSONAL BURGER MENU */}
+        {/* <Navbar.Content showIn='md'>
+          <BurgerMenu />
+        </Navbar.Content> */}
+
+        {/* LOGO */}
+        <Navbar.Content hideIn='md'>
+          <Navbar.Brand>
+            <Navbar.Toggle
+              aria-label='toggle navigation'
+              onChange={() => !isOpen}
+              showIn='md'
+              onClick={() => setIsOpen(!isOpen)}
+            />
+            <NextLink href='/'>
+              <a>
+                <Image
+                  className={styles.logo}
+                  onClick={() => setActive('/')}
+                  src={logo}
+                  height={75}
+                  width={75}
+                  alt='Luem Logo'
+                />
+              </a>
+            </NextLink>
+          </Navbar.Brand>
+        </Navbar.Content>
+
+        {/* NAVIGATION */}
         <Navbar.Content
           isCursorHighlightRounded
           activeColor='secondary'
@@ -137,8 +150,31 @@ export default function NavigateBar({ activeLink }) {
             </Button>
           </a>
         </Navbar.Content>
-        <UtilityIconsCompacted />
+
         <UtilityIcons />
+        <UtilityIconsCompacted />
+
+        {/* LOGO in MD Resolution */}
+        {/* <Navbar.Content showIn='md'>
+          <Navbar.Brand>
+            <NextLink href='/'>
+              <a>
+                <div className={styles.logo}>
+                  <Image
+                    className={styles.logo}
+                    onClick={() => setActive('/')}
+                    src={logo}
+                    height={75}
+                    width={75}
+                    alt='Luem Logo'
+                  />
+                </div>
+              </a>
+            </NextLink>
+          </Navbar.Brand>
+        </Navbar.Content> */}
+
+        {/* CONTENT BURGER MENU NEXTUI */}
         <Navbar.Content>
           <Navbar.Brand showIn={'md'}>
             <NextLink href='/'>
@@ -179,7 +215,7 @@ export default function NavigateBar({ activeLink }) {
                   isActive={active === itemLink}
                 >
                   <NextLink href={`${itemLink}`}>
-                    <Link
+                    <Navbar.Link
                       color='inherit'
                       onClick={() => {
                         setIsOpen(false);
@@ -190,7 +226,7 @@ export default function NavigateBar({ activeLink }) {
                         id={`navbar.${itemId}`}
                         defaultMessage={`${item}`}
                       />
-                    </Link>
+                    </Navbar.Link>
                   </NextLink>
                 </Navbar.CollapseItem>
               );
@@ -212,6 +248,7 @@ export default function NavigateBar({ activeLink }) {
             </Navbar.CollapseItem>
           </Navbar.Collapse>
         </Navbar.Content>
+        {/* CONTENT BURGER MENU NEXTUI */}
       </Navbar>
     </Box>
   );

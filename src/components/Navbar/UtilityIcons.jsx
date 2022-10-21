@@ -158,6 +158,9 @@ export function UtilityIconsCompacted() {
           css={{
             border: isDark ? '1px solid #0072f5' : '1px solid #9750b0',
             padding: '$5',
+            '@xsMin': {
+              display: 'none',
+            },
           }}
         >
           <a

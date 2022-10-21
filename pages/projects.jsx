@@ -9,6 +9,9 @@ export default function Projects() {
     <Layout
       pageTitle='Projects'
       pageDescription='There are my projects i worked on this year'
+      container={{
+        marginBottom: '$10',
+      }}
     >
       <motion.div
         initial={{ x: -100, opacity: 0 }}

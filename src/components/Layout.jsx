@@ -16,13 +16,14 @@ export function Layout({ children, pageTitle, pageDescription, container }) {
           maxW: '100%',
           fontFamily: '$sans',
           fontWeight: '$bold',
+          ...container,
         }}
       >
         <Container
-          display={container?.display || 'flex'}
-          direction={container?.direction || 'column'}
-          justify={container?.justify || 'center'}
-          alignItems={container?.align || 'center'}
+          display='flex'
+          direction='column'
+          justify='center'
+          alignItems='center'
         >
           {children}
         </Container>

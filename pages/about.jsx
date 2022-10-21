@@ -66,6 +66,7 @@ export default function About({ activeLink }) {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            marginBottom: '$10',
             gap: '$36',
             '@mdMax': {
               flexDirection: 'column-reverse',

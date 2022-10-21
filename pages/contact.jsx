@@ -13,6 +13,9 @@ export default function Contact({ activeLink }) {
     <Layout
       pageTitle='Contact'
       pageDescription='You can contact me with the follow methods'
+      container={{
+        marginBottom: '$10',
+      }}
     >
       <motion.div
         initial={{ x: -100, opacity: 0 }}

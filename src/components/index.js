@@ -3,5 +3,6 @@ export * from './Form';
 export * from './ProjectsCarousel';
 export * from './TechGrid';
 export * from './Box.jsx';
+export * from './BurgerMenu';
 export * from './Layout.jsx';
 export * from './ButtonGroup.jsx';
