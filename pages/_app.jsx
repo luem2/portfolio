@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
-import { Navbar } from '../src/components';
+import { Navbar, SidebarMenu } from '../src/components';
 import { darkTheme, lightTheme } from '../themes';
 import { LangProvider } from '../src/context/langContext';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   const [active, setActive] = useState('/');
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const activeLink = [active, setActive];
+  const activeMenu = [openMenu, setOpenMenu];
 
   return (
     <LangProvider>
@@ -21,8 +25,13 @@ function MyApp({ Component, pageProps }) {
         }}
       >
         <NextUIProvider theme={darkTheme}>
-          <Navbar activeLink={[active, setActive]} />
-          <Component {...pageProps} activeLink={[active, setActive]} />
+          <Navbar activeLink={activeLink} activeMenu={activeMenu} />
+          <SidebarMenu activeLink={activeLink} activeMenu={activeMenu} />
+          <Component
+            {...pageProps}
+            activeLink={activeLink}
+            activeMenu={activeMenu}
+          />
         </NextUIProvider>
       </NextThemesProvider>
     </LangProvider>

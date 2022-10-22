@@ -19,6 +19,11 @@ import {
   rgbTech,
   henryGamesLogo,
   rgbTechLogo,
+  AiFillHome,
+  MdOutlineWork,
+  BsFillPersonFill,
+  GrTechnology,
+  BsEnvelopeOpenFill,
 } from '/src/assets';
 
 export const techstack = [
@@ -136,5 +141,38 @@ export const projectData = [
       backend:
         'Express, NodeJS, PostgreSQL, Sequelize, Nodemailer, Json Web Token, Cloudinary, Bcrypt',
     },
+  },
+];
+
+export const sidebarData = [
+  {
+    id: '01.home',
+    title: 'Home',
+    path: '/',
+    icon: <AiFillHome size={25} />,
+  },
+  {
+    id: '02.about',
+    title: 'About',
+    path: '/about',
+    icon: <BsFillPersonFill size={25} />,
+  },
+  {
+    id: '03.techStack',
+    title: 'Tech Stack',
+    path: '/tech-stack',
+    icon: <GrTechnology size={25} />,
+  },
+  {
+    id: '04.projects',
+    title: 'Projects',
+    path: '/projects',
+    icon: <MdOutlineWork size={25} />,
+  },
+  {
+    id: '05.contact',
+    title: 'Contact',
+    path: '/contact',
+    icon: <BsEnvelopeOpenFill size={25} />,
   },
 ];

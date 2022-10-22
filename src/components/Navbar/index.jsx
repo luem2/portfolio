@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { Image } from '@nextui-org/react';
 import NextLink from 'next/link';
-import { Button, Link, Navbar } from '@nextui-org/react';
+import { Button, Navbar } from '@nextui-org/react';
 import { logo } from '/src/assets';
 import { Box } from '../Box';
 import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons';
 import { FormattedMessage } from 'react-intl';
-// import { BurgerMenu } from '../BurgerMenu';
+import { HamburgerButton } from '../HamburgerButton';
 import styles from '/styles/Navbar.module.css';
 
-export default function NavigateBar({ activeLink }) {
+export default function NavigateBar({ activeLink, activeMenu }) {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = activeLink;
 
@@ -20,8 +20,6 @@ export default function NavigateBar({ activeLink }) {
       fontWeight: 'bold',
     },
   };
-
-  const collapseItems = ['Home', 'About', 'Tech Stack', 'Projects', 'Contact'];
 
   useEffect(() => {
     if (window.location.pathname === '/') {
@@ -39,17 +37,10 @@ export default function NavigateBar({ activeLink }) {
       }}
     >
       <Navbar variant='sticky'>
-        {/* NEXTUI BURGER BUTTON */}
-        <Navbar.Toggle
-          isSelected={isOpen}
-          onClick={() => setIsOpen(!isOpen)}
-          showIn='md'
-        />
-
-        {/* PERSONAL BURGER MENU */}
-        {/* <Navbar.Content showIn='md'>
-          <BurgerMenu />
-        </Navbar.Content> */}
+        {/* HAMBURGER BUTTON*/}
+        <Navbar.Content showIn='md'>
+          <HamburgerButton activeMenu={activeMenu} />
+        </Navbar.Content>
 
         {/* LOGO */}
         <Navbar.Content hideIn='md'>
@@ -65,7 +56,7 @@ export default function NavigateBar({ activeLink }) {
                 <Image
                   className={styles.logo}
                   onClick={() => setActive('/')}
-                  src={logo}
+                  src={logo.default.src}
                   height={75}
                   width={75}
                   alt='Luem Logo'
@@ -151,104 +142,34 @@ export default function NavigateBar({ activeLink }) {
           </a>
         </Navbar.Content>
 
+        {/* UTILITY ICONS */}
         <UtilityIcons />
         <UtilityIconsCompacted />
 
         {/* LOGO in MD Resolution */}
-        {/* <Navbar.Content showIn='md'>
+        <Navbar.Content showIn='md'>
           <Navbar.Brand>
             <NextLink href='/'>
               <a>
-                <div className={styles.logo}>
-                  <Image
-                    className={styles.logo}
-                    onClick={() => setActive('/')}
-                    src={logo}
-                    height={75}
-                    width={75}
-                    alt='Luem Logo'
-                  />
-                </div>
+                <Image
+                  css={{
+                    '@xsMax': {
+                      height: '65px',
+                      width: '65px',
+                      marginTop: '5px',
+                    },
+                  }}
+                  className={styles.logo}
+                  onClick={() => setActive('/')}
+                  src={logo.default.src}
+                  height={75}
+                  width={75}
+                  alt='Luem Logo'
+                />
               </a>
             </NextLink>
           </Navbar.Brand>
-        </Navbar.Content> */}
-
-        {/* CONTENT BURGER MENU NEXTUI */}
-        <Navbar.Content>
-          <Navbar.Brand showIn={'md'}>
-            <NextLink href='/'>
-              <a>
-                <div className={styles.logo}>
-                  <Image
-                    className={styles.logo}
-                    onClick={() => setActive('/')}
-                    src={logo}
-                    height={75}
-                    width={75}
-                    alt='Luem Logo'
-                  />
-                </div>
-              </a>
-            </NextLink>
-          </Navbar.Brand>
-          <Navbar.Collapse isOpen={isOpen}>
-            {collapseItems.map(item => {
-              let itemLink;
-              let itemId;
-
-              if (item === 'Home') {
-                itemLink = '/';
-                itemId = 'home';
-              } else if (item === 'Tech Stack') {
-                itemLink = '/tech-stack';
-                itemId = 'techStack';
-              } else {
-                itemLink = item[0].toLowerCase() + item.slice(1);
-                itemId = item[0].toLowerCase() + item.slice(1);
-              }
-
-              return (
-                <Navbar.CollapseItem
-                  key={item}
-                  activeColor='secondary'
-                  isActive={active === itemLink}
-                >
-                  <NextLink href={`${itemLink}`}>
-                    <Navbar.Link
-                      color='inherit'
-                      onClick={() => {
-                        setIsOpen(false);
-                        setActive(itemLink);
-                      }}
-                    >
-                      <FormattedMessage
-                        id={`navbar.${itemId}`}
-                        defaultMessage={`${item}`}
-                      />
-                    </Navbar.Link>
-                  </NextLink>
-                </Navbar.CollapseItem>
-              );
-            })}
-            <Navbar.CollapseItem>
-              <a
-                href='/cv-luciano-pinol-fullstack.pdf'
-                alt='cv-lucianopinol'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <Button color='gradient' auto ghost shadow animated>
-                  <FormattedMessage
-                    id='navbar.cv'
-                    defaultMessage='Download CV'
-                  />
-                </Button>
-              </a>
-            </Navbar.CollapseItem>
-          </Navbar.Collapse>
         </Navbar.Content>
-        {/* CONTENT BURGER MENU NEXTUI */}
       </Navbar>
     </Box>
   );
