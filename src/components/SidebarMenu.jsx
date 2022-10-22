@@ -9,7 +9,7 @@ import styles from '/styles/SidebarMenu.module.css';
 export function SidebarMenu({ activeLink, activeMenu }) {
   const [active, setActive] = activeLink;
   const [openMenu, setOpenMenu] = activeMenu;
-  const isDark = useTheme();
+  const { isDark } = useTheme();
 
   useEffect(() => {
     if (window.location.pathname === '/') {
@@ -21,14 +21,20 @@ export function SidebarMenu({ activeLink, activeMenu }) {
 
   return (
     <nav
-      className={
-        openMenu
-          ? [styles.activeMenu, isDark ? styles.dark : styles.light].join(' ')
-          : styles.disabledMenu
-      }
+      className={[
+        styles.navMenu,
+        openMenu ? styles.activeMenu : styles.disabledMenu,
+        isDark ? styles.dark : styles.light,
+      ].join(' ')}
     >
       <ul className={styles.ul}>
         {sidebarData.map(item => {
+          let itemLink;
+
+          item.path === '/'
+            ? (itemLink = '/')
+            : (itemLink = item.path.slice(1));
+
           return (
             <li
               style={{
@@ -37,7 +43,7 @@ export function SidebarMenu({ activeLink, activeMenu }) {
               key={item.title}
               onClick={() => {
                 setOpenMenu(false);
-                setActive(item.path);
+                setActive(item.path === '/' ? item.path : item.path.slice(1));
               }}
             >
               <Link href={item.path}>
@@ -46,7 +52,12 @@ export function SidebarMenu({ activeLink, activeMenu }) {
                     css={{
                       display: 'flex',
                       padding: '$2',
-                      color: active === item.path ? '#bd2c7b' : 'white',
+                      color:
+                        active === itemLink
+                          ? '#bd2c7b'
+                          : isDark
+                          ? 'white'
+                          : 'black',
                     }}
                     b
                     size={20}
