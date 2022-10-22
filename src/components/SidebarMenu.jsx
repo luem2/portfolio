@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Link from 'next/link';
 import { sidebarData } from '/src/constants.js';
@@ -13,6 +13,14 @@ export function SidebarMenu({ activeLink, activeMenu }) {
 
   console.log('sidebarData', sidebarData);
 
+  useEffect(() => {
+    if (window.location.pathname === '/') {
+      setActive('/');
+    } else {
+      setActive(window.location.pathname.slice(1));
+    }
+  }, [setActive]);
+
   return (
     <nav
       className={
@@ -23,8 +31,6 @@ export function SidebarMenu({ activeLink, activeMenu }) {
     >
       <ul>
         {sidebarData.map(item => {
-          console.log(item.path, active);
-
           return (
             <li
               key={item.title}
@@ -36,10 +42,15 @@ export function SidebarMenu({ activeLink, activeMenu }) {
               <Link href={item.path}>
                 <a>
                   <Text
+                    css={{
+                      display: 'flex',
+                      padding: '$2',
+                    }}
                     b
                     size={16}
                     color={active === item.path ? '#bd2c7b' : 'white'}
                   >
+                    {item.icon}
                     {item.title}
                   </Text>
                 </a>

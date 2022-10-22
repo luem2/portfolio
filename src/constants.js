@@ -22,8 +22,8 @@ import {
   AiFillHome,
   MdOutlineWork,
   BsFillPersonFill,
-  GrTechnology,
-  BsEnvelopeOpenFill,
+  BsStack,
+  MdOutlineEmail,
 } from '/src/assets';
 
 export const techstack = [
@@ -149,30 +149,52 @@ export const sidebarData = [
     id: '01.home',
     title: 'Home',
     path: '/',
-    icon: <AiFillHome size={25} />,
+    icon: (
+      <AiFillHome
+        size={25}
+        style={{ alignSelf: 'center', marginRight: '8px' }}
+      />
+    ),
   },
   {
     id: '02.about',
     title: 'About',
     path: '/about',
-    icon: <BsFillPersonFill size={25} />,
+    icon: (
+      <BsFillPersonFill
+        size={25}
+        style={{ alignSelf: 'center', marginRight: '8px' }}
+      />
+    ),
   },
   {
     id: '03.techStack',
     title: 'Tech Stack',
     path: '/tech-stack',
-    icon: <GrTechnology size={25} />,
+    icon: (
+      <BsStack size={25} style={{ alignSelf: 'center', marginRight: '8px' }} />
+    ),
   },
   {
     id: '04.projects',
     title: 'Projects',
     path: '/projects',
-    icon: <MdOutlineWork size={25} />,
+    icon: (
+      <MdOutlineWork
+        size={25}
+        style={{ alignSelf: 'center', marginRight: '8px' }}
+      />
+    ),
   },
   {
     id: '05.contact',
     title: 'Contact',
     path: '/contact',
-    icon: <BsEnvelopeOpenFill size={25} />,
+    icon: (
+      <MdOutlineEmail
+        size={25}
+        style={{ alignSelf: 'center', marginRight: '8px' }}
+      />
+    ),
   },
 ];
