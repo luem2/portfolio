@@ -22,16 +22,7 @@ export function TechGrid() {
 
   return (
     <motion.ul variants={container} initial='hidden' animate='show'>
-      <Grid.Container
-        css={{
-          '@xsMax': {
-            height: '40rem',
-            overflowY: 'scroll',
-          },
-        }}
-        gap={2}
-        justify='center'
-      >
+      <Grid.Container gap={2} justify='center'>
         {techstack.map(tech => (
           <Grid
             style={{

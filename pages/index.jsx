@@ -15,10 +15,6 @@ export default function Home({ activeLink }) {
     <Layout
       pageTitle='Home'
       pageDescription='This is the home page of Luciano Piñol Portfolio.'
-      container={{
-        display: 'flex',
-        height: 'screen',
-      }}
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}

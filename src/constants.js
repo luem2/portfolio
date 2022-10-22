@@ -146,53 +146,53 @@ export const projectData = [
 
 export const sidebarData = [
   {
-    id: '01.home',
+    id: 'home',
     title: 'Home',
     path: '/',
     icon: (
       <AiFillHome
-        size={25}
+        size={40}
         style={{ alignSelf: 'center', marginRight: '8px' }}
       />
     ),
   },
   {
-    id: '02.about',
+    id: 'about',
     title: 'About',
     path: '/about',
     icon: (
       <BsFillPersonFill
-        size={25}
+        size={40}
         style={{ alignSelf: 'center', marginRight: '8px' }}
       />
     ),
   },
   {
-    id: '03.techStack',
+    id: 'techStack',
     title: 'Tech Stack',
     path: '/tech-stack',
     icon: (
-      <BsStack size={25} style={{ alignSelf: 'center', marginRight: '8px' }} />
+      <BsStack size={40} style={{ alignSelf: 'center', marginRight: '8px' }} />
     ),
   },
   {
-    id: '04.projects',
+    id: 'projects',
     title: 'Projects',
     path: '/projects',
     icon: (
       <MdOutlineWork
-        size={25}
+        size={40}
         style={{ alignSelf: 'center', marginRight: '8px' }}
       />
     ),
   },
   {
-    id: '05.contact',
+    id: 'contact',
     title: 'Contact',
     path: '/contact',
     icon: (
       <MdOutlineEmail
-        size={25}
+        size={40}
         style={{ alignSelf: 'center', marginRight: '8px' }}
       />
     ),

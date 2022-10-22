@@ -3,7 +3,6 @@ import { Image } from '@nextui-org/react';
 import NextLink from 'next/link';
 import { Button, Navbar } from '@nextui-org/react';
 import { logo } from '/src/assets';
-import { Box } from '../Box';
 import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons';
 import { FormattedMessage } from 'react-intl';
 import { HamburgerButton } from '../HamburgerButton';
@@ -12,6 +11,7 @@ import styles from '/styles/Navbar.module.css';
 export default function NavigateBar({ activeLink, activeMenu }) {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = activeLink;
+  const sidebarMenuIsOpen = activeMenu[0];
 
   const hoverStyle = {
     minWidth: '100%',
@@ -39,7 +39,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
         },
       }}
       variant='sticky'
-      shouldHideOnScroll
+      shouldHideOnScroll={sidebarMenuIsOpen ? false : true}
     >
       {/* HAMBURGER BUTTON*/}
       <Navbar.Content showIn='md'>
