@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
@@ -14,6 +14,9 @@ function MyApp({ Component, pageProps }) {
   const activeLink = [active, setActive];
   const activeMenu = [openMenu, setOpenMenu];
 
+  const isDarkMode = globalThis.localStorage?.getItem('theme') === 'dark';
+  const theme = !isDarkMode ? lightTheme : darkTheme;
+
   return (
     <LangProvider>
       <NextThemesProvider
@@ -24,7 +27,7 @@ function MyApp({ Component, pageProps }) {
           dark: darkTheme.className,
         }}
       >
-        <NextUIProvider theme={darkTheme}>
+        <NextUIProvider theme={theme}>
           <Navbar activeLink={activeLink} activeMenu={activeMenu} />
           <SidebarMenu activeLink={activeLink} activeMenu={activeMenu} />
           <Component

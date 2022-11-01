@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Layout } from '../src/components';
 import { Button, Image, Text, useTheme } from '@nextui-org/react';
-import { GrMail, FaRocket, photoProfile } from '/src/assets';
+import { GrMail, FaRocket, profilePhoto } from '/src/assets';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { FormattedMessage } from 'react-intl';
@@ -214,8 +214,8 @@ export default function About({ activeLink }) {
                 height: 300,
               },
             }}
-            src={photoProfile.default.src}
-            alt='photoProfile'
+            src={profilePhoto.default.src}
+            alt='profilePhoto'
             width='auto'
             height='auto'
           />

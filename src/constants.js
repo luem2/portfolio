@@ -19,6 +19,8 @@ import {
   rgbTech,
   henryGamesLogo,
   rgbTechLogo,
+  windowsLogo,
+  linuxLogo,
   AiFillHome,
   MdOutlineWork,
   BsFillPersonFill,
@@ -106,6 +108,16 @@ export const techstack = [
   {
     name: 'Trello',
     img: trelloLogo,
+  },
+
+  {
+    name: 'Windows',
+    img: windowsLogo,
+  },
+
+  {
+    name: 'Linux',
+    img: linuxLogo,
   },
 ];
 
