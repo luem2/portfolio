@@ -46,7 +46,7 @@ export function SidebarMenu({ activeLink, activeMenu }) {
                 setActive(item.path === '/' ? item.path : item.path.slice(1));
               }}
             >
-              <Link href={item.path}>
+              <Link legacyBehavior href={item.path}>
                 <a>
                   <Text
                     css={{
