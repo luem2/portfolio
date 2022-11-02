@@ -55,7 +55,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
             showIn='md'
             onClick={() => setIsOpen(!isOpen)}
           />
-          <NextLink legacyBehavior href='/'>
+          <NextLink href='/'>
             <a>
               <Image
                 className={styles.logo}
@@ -77,7 +77,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
         hideIn='md'
         variant='underline-rounded'
       >
-        <NextLink legacyBehavior href='/'>
+        <NextLink href='/'>
           <Navbar.Link
             onClick={() => setActive('/')}
             isActive={active === '/'}
@@ -86,7 +86,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
             <FormattedMessage id='navbar.home' defaultMessage='Home' />
           </Navbar.Link>
         </NextLink>
-        <NextLink legacyBehavior href='/about'>
+        <NextLink href='/about'>
           <Navbar.Link
             onClick={() => setActive('about')}
             isActive={active === 'about'}
@@ -95,7 +95,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
             <FormattedMessage id='navbar.about' defaultMessage='About' />
           </Navbar.Link>
         </NextLink>
-        <NextLink legacyBehavior href='/tech-stack'>
+        <NextLink href='/tech-stack'>
           <Navbar.Link
             onClick={() => setActive('tech-stack')}
             isActive={active === 'tech-stack'}
@@ -113,7 +113,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
             />
           </Navbar.Link>
         </NextLink>
-        <NextLink legacyBehavior href='/projects'>
+        <NextLink href='/projects'>
           <Navbar.Link
             onClick={() => setActive('projects')}
             isActive={active === 'projects'}
@@ -122,7 +122,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
             <FormattedMessage id='navbar.projects' defaultMessage='Projects' />
           </Navbar.Link>
         </NextLink>
-        <NextLink legacyBehavior href='/contact'>
+        <NextLink href='/contact'>
           <Navbar.Link
             onClick={() => setActive('contact')}
             isActive={active === 'contact'}
@@ -150,7 +150,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
       {/* LOGO in MD Resolution */}
       <Navbar.Content showIn='md'>
         <Navbar.Brand>
-          <NextLink legacyBehavior href='/'>
+          <NextLink href='/'>
             <a>
               <Image
                 css={{
