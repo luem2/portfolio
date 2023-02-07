@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react'
 import { useInput } from '@nextui-org/react'
 import { Input } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
-import { Color } from '../../../types/types'
+import { SimpleColors } from '../../../types/types'
 
 export function NameInput() {
     const { value, bindings } = useInput('')
@@ -13,7 +13,7 @@ export function NameInput() {
 
     const helperName = useMemo((): {
         text: string | React.ReactNode
-        color: Color
+        color: SimpleColors
     } => {
         if (!value) {
             return {

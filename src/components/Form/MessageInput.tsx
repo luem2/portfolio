@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react'
 import { Textarea, useInput } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
-import { Color } from '../../../types/types'
+import { SimpleColors } from '../../../types/types'
 
 export function MessageInput() {
     const { value, bindings } = useInput('')
@@ -12,7 +12,7 @@ export function MessageInput() {
 
     const helperMessage = useMemo((): {
         text: string | React.ReactNode
-        color: Color
+        color: SimpleColors
     } => {
         if (!value) {
             return {

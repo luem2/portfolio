@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react'
 import { useInput } from '@nextui-org/react'
 import { Input } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
-import { Color } from '../../../types/types'
+import { SimpleColors } from '../../../types/types'
 
 export function EmailInput() {
     const { value, reset, bindings } = useInput('')
@@ -13,7 +13,7 @@ export function EmailInput() {
 
     const helperEmail = useMemo((): {
         text: string | React.ReactNode
-        color: Color
+        color: SimpleColors
     } => {
         if (!value) {
             return {

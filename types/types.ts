@@ -5,7 +5,7 @@ export interface SideBarObject {
     icon: JSX.Element
 }
 
-export type Color =
+export type SimpleColors =
     | 'default'
     | 'primary'
     | 'secondary'
