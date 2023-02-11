@@ -1,4 +1,4 @@
-import { SideBarObject } from '../types/types'
+import type { SideBarObject } from '../types/types'
 import React from 'react'
 import {
     htmlLogo,

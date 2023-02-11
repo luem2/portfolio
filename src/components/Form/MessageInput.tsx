@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react'
 import { Textarea, useInput } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
-import { SimpleColors } from '../../../types/types'
+import type { SimpleColors } from '../../../types/types'
 
 export function MessageInput() {
     const { value, bindings } = useInput('')
