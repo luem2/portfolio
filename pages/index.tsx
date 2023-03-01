@@ -6,9 +6,11 @@ import { useRouter } from 'next/router'
 import { logo2 } from '../src/assets/'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
+import { useStore } from '../src/store/useStore'
 
-export default function Home({ activeLink }) {
-    const setActive = activeLink[1]
+export default function Home() {
+    const { setActiveLink } = useStore()
+
     const router = useRouter()
 
     return (
@@ -80,7 +82,7 @@ export default function Home({ activeLink }) {
                         auto
                         onClick={() => {
                             router.push('/about')
-                            setActive('about')
+                            setActiveLink('about')
                         }}
                         icon={<BiLinkExternal size={25} />}
                         color='secondary'
@@ -100,7 +102,7 @@ export default function Home({ activeLink }) {
                         auto
                         onClick={() => {
                             router.push('/contact')
-                            setActive('contact')
+                            setActiveLink('contact')
                         }}
                         icon={<AiOutlineComment size={25} />}
                         color='primary'

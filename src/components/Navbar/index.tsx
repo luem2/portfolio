@@ -7,15 +7,11 @@ import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons'
 import { FormattedMessage } from 'react-intl'
 import { HamburgerButton } from '../HamburgerButton'
 import styles from '/styles/Navbar.module.css'
-import { CV_SPANISH } from '../../constants'
-import { useCvStore } from '../../store/useCvStore'
+import { useStore } from '../../store/useStore'
 
-export default function NavigateBar({ activeLink, activeMenu }) {
+export default function NavigateBar() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const { cvLang } = useCvStore()
-
-    const [active, setActive] = activeLink
-    const sidebarMenuIsOpen = activeMenu[0]
+    const { cvLang, activeLink, setActiveLink, openMenu } = useStore()
 
     const hoverStyle = {
         minWidth: '100%',
@@ -27,11 +23,11 @@ export default function NavigateBar({ activeLink, activeMenu }) {
 
     useEffect(() => {
         if (window.location.pathname === '/') {
-            setActive('/')
+            setActiveLink('/')
         } else {
-            setActive(window.location.pathname.slice(1))
+            setActiveLink(window.location.pathname.slice(1))
         }
-    }, [setActive])
+    }, [setActiveLink])
 
     return (
         <Navbar
@@ -43,11 +39,11 @@ export default function NavigateBar({ activeLink, activeMenu }) {
                 },
             }}
             variant='sticky'
-            shouldHideOnScroll={sidebarMenuIsOpen ? false : true}
+            shouldHideOnScroll={openMenu ? false : true}
         >
             {/* HAMBURGER BUTTON*/}
             <Navbar.Content showIn='md'>
-                <HamburgerButton activeMenu={activeMenu} />
+                <HamburgerButton />
             </Navbar.Content>
 
             {/* LOGO */}
@@ -63,7 +59,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
                         <a>
                             <Image
                                 className={styles.logo}
-                                onClick={() => setActive('/')}
+                                onClick={() => setActiveLink('/')}
                                 src={logo.src}
                                 height={75}
                                 width={75}
@@ -83,8 +79,8 @@ export default function NavigateBar({ activeLink, activeMenu }) {
             >
                 <NextLink href='/'>
                     <Navbar.Link
-                        onClick={() => setActive('/')}
-                        isActive={active === '/'}
+                        onClick={() => setActiveLink('/')}
+                        isActive={activeLink === '/'}
                         css={hoverStyle}
                     >
                         <FormattedMessage
@@ -95,8 +91,8 @@ export default function NavigateBar({ activeLink, activeMenu }) {
                 </NextLink>
                 <NextLink href='/about'>
                     <Navbar.Link
-                        onClick={() => setActive('about')}
-                        isActive={active === 'about'}
+                        onClick={() => setActiveLink('about')}
+                        isActive={activeLink === 'about'}
                         css={hoverStyle}
                     >
                         <FormattedMessage
@@ -107,8 +103,8 @@ export default function NavigateBar({ activeLink, activeMenu }) {
                 </NextLink>
                 <NextLink href='/tech-stack'>
                     <Navbar.Link
-                        onClick={() => setActive('tech-stack')}
-                        isActive={active === 'tech-stack'}
+                        onClick={() => setActiveLink('tech-stack')}
+                        isActive={activeLink === 'tech-stack'}
                         css={{
                             minWidth: '100%',
                             '&:hover': {
@@ -125,8 +121,8 @@ export default function NavigateBar({ activeLink, activeMenu }) {
                 </NextLink>
                 <NextLink href='/projects'>
                     <Navbar.Link
-                        onClick={() => setActive('projects')}
-                        isActive={active === 'projects'}
+                        onClick={() => setActiveLink('projects')}
+                        isActive={activeLink === 'projects'}
                         css={hoverStyle}
                     >
                         <FormattedMessage
@@ -137,8 +133,8 @@ export default function NavigateBar({ activeLink, activeMenu }) {
                 </NextLink>
                 <NextLink href='/contact'>
                     <Navbar.Link
-                        onClick={() => setActive('contact')}
-                        isActive={active === 'contact'}
+                        onClick={() => setActiveLink('contact')}
+                        isActive={activeLink === 'contact'}
                         css={hoverStyle}
                     >
                         <FormattedMessage
@@ -175,7 +171,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
                                     },
                                 }}
                                 className={styles.logo}
-                                onClick={() => setActive('/')}
+                                onClick={() => setActiveLink('/')}
                                 src={logo.src}
                                 height={75}
                                 width={75}

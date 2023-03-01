@@ -5,9 +5,11 @@ import { GrMail, FaRocket, profilePhoto } from '../src/assets'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
+import { useStore } from '../src/store/useStore'
 
-export default function About({ activeLink }) {
-    const setActive = activeLink[1]
+export default function About() {
+    const { setActiveLink } = useStore()
+
     const router = useRouter()
     const { isDark } = useTheme()
 
@@ -161,7 +163,7 @@ preference for the backend, although I like the frontend a lot
                                 auto
                                 onClick={() => {
                                     router.push('/contact')
-                                    setActive('contact')
+                                    setActiveLink('contact')
                                 }}
                                 icon={<GrMail size={25} />}
                                 color='primary'
@@ -183,7 +185,7 @@ preference for the backend, although I like the frontend a lot
                                 auto
                                 onClick={() => {
                                     router.push('/projects')
-                                    setActive('projects')
+                                    setActiveLink('projects')
                                 }}
                                 icon={<FaRocket size={25} />}
                                 color='secondary'

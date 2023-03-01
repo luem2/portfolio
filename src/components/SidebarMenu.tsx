@@ -5,22 +5,20 @@ import { sidebarData } from '../constants'
 import { Button, Text, useTheme } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
 import styles from '/styles/SidebarMenu.module.css'
-import { useCvStore } from '../store/useCvStore'
+import { useStore } from '../store/useStore'
 
-export function SidebarMenu({ activeLink, activeMenu }) {
-    const [active, setActive] = activeLink
-    const { cvLang } = useCvStore()
-
-    const [openMenu, setOpenMenu] = activeMenu
+export function SidebarMenu() {
+    const { cvLang, activeLink, setActiveLink, openMenu, setOpenMenu } =
+        useStore()
     const { isDark } = useTheme()
 
     useEffect(() => {
         if (window.location.pathname === '/') {
-            setActive('/')
+            setActiveLink('/')
         } else {
-            setActive(window.location.pathname.slice(1))
+            setActiveLink(window.location.pathname.slice(1))
         }
-    }, [setActive])
+    }, [setActiveLink])
 
     return (
         <nav
@@ -46,7 +44,7 @@ export function SidebarMenu({ activeLink, activeMenu }) {
                             key={item.title}
                             onClick={() => {
                                 setOpenMenu(false)
-                                setActive(
+                                setActiveLink(
                                     item.path === '/'
                                         ? item.path
                                         : item.path.slice(1)
@@ -60,7 +58,7 @@ export function SidebarMenu({ activeLink, activeMenu }) {
                                             display: 'flex',
                                             padding: '$2',
                                             color:
-                                                active === itemLink
+                                                activeLink === itemLink
                                                     ? '#bd2c7b'
                                                     : isDark
                                                     ? 'white'
