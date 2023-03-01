@@ -3,7 +3,7 @@ import { Button, Row, Text, Image } from '@nextui-org/react'
 import { Layout } from '../src/components'
 import { AiOutlineComment, BiLinkExternal } from '../src/assets'
 import { useRouter } from 'next/router'
-import { logo2 } from '../src/assets/'
+import { avatar } from '../src/assets/'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
 import { useStore } from '../src/store/useStore'
@@ -60,10 +60,10 @@ export default function Home() {
                     }}
                 >
                     <Image
-                        src={logo2.src}
+                        src={avatar.src}
                         alt='logo-Luem'
-                        width={200}
-                        height={200}
+                        width={220}
+                        height={220}
                     />
                 </motion.div>
 
