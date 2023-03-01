@@ -208,3 +208,6 @@ export const sidebarData: SideBarObject[] = [
         ),
     },
 ]
+
+export const CV_SPANISH = '/cv-luciano-pinol-spanish.pdf'
+export const CV_ENGLISH = '/cv-luciano-pinol-english.pdf'

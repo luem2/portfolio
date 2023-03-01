@@ -10,6 +10,10 @@ import styles from '/styles/Navbar.module.css'
 
 export default function NavigateBar({ activeLink, activeMenu }) {
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [cvLang, setCvLang] = useState<string>(
+        '/cv-luciano-pinol-spanish.pdf'
+    )
+
     const [active, setActive] = activeLink
     const sidebarMenuIsOpen = activeMenu[0]
 
@@ -143,11 +147,7 @@ export default function NavigateBar({ activeLink, activeMenu }) {
                         />
                     </Navbar.Link>
                 </NextLink>
-                <a
-                    href='/cv-luciano-pinol-fullstack.pdf'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                >
+                <a href={cvLang} target='_blank' rel='noopener noreferrer'>
                     <Button color='gradient' auto ghost shadow animated>
                         <FormattedMessage
                             id='navbar.cv'
@@ -158,8 +158,8 @@ export default function NavigateBar({ activeLink, activeMenu }) {
             </Navbar.Content>
 
             {/* UTILITY ICONS */}
-            <UtilityIcons />
-            <UtilityIconsCompacted />
+            <UtilityIcons setCvLang={setCvLang} />
+            <UtilityIconsCompacted setCvLang={setCvLang} />
 
             {/* LOGO in MD Resolution */}
             <Navbar.Content showIn='md'>

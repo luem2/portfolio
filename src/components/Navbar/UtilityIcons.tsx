@@ -17,7 +17,7 @@ import { useTheme } from '@nextui-org/react'
 import { LanguageSwitch } from './LanguageSwitch'
 import { Box } from '../Box'
 
-export function UtilityIcons() {
+export function UtilityIcons({ setCvLang }) {
     const { setTheme } = useNextTheme()
     const { isDark } = useTheme()
     return (
@@ -113,7 +113,7 @@ export function UtilityIcons() {
                     </a>
                 </Navbar.Item>
                 <Navbar.Item>
-                    <LanguageSwitch />
+                    <LanguageSwitch setCvLang={setCvLang} />
                 </Navbar.Item>
                 <Navbar.Item>
                     <Switch
@@ -122,7 +122,7 @@ export function UtilityIcons() {
                         size='md'
                         iconOff={<BsFillMoonFill />}
                         iconOn={<BsFillSunFill />}
-                        onChange={e =>
+                        onChange={(e) =>
                             setTheme(e.target.checked ? 'dark' : 'light')
                         }
                     />
@@ -132,7 +132,7 @@ export function UtilityIcons() {
     )
 }
 
-export function UtilityIconsCompacted() {
+export function UtilityIconsCompacted({ setCvLang }) {
     const { setTheme } = useNextTheme()
     const { isDark } = useTheme()
     return (
@@ -225,7 +225,7 @@ export function UtilityIconsCompacted() {
                                 marginTop: '0.2rem',
                             }}
                         >
-                            <LanguageSwitch />
+                            <LanguageSwitch setCvLang={setCvLang} />
                         </div>
                         <Switch
                             checked={isDark}
@@ -233,7 +233,7 @@ export function UtilityIconsCompacted() {
                             size='md'
                             iconOff={<BsFillMoonFill />}
                             iconOn={<BsFillSunFill />}
-                            onChange={e =>
+                            onChange={(e) =>
                                 setTheme(e.target.checked ? 'dark' : 'light')
                             }
                         />
