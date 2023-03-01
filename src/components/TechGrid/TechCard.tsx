@@ -37,6 +37,11 @@ export function TechCard({ tech }) {
                 >
                     {tech.name}
                 </Text>
+                {tech.secondLine && (
+                    <Text em b showIn='md'>
+                        {tech.secondLine}
+                    </Text>
+                )}
             </Card.Body>
         </Card>
     )

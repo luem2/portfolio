@@ -75,7 +75,8 @@ export const techstack = [
     },
 
     {
-        name: 'React/React Native',
+        name: 'React',
+        secondLine: 'React Native',
         img: reactLogo,
     },
 

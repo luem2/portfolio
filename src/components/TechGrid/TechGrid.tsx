@@ -23,7 +23,7 @@ export function TechGrid() {
     return (
         <motion.ul variants={container} initial='hidden' animate='show'>
             <Grid.Container gap={2} justify='center'>
-                {techstack.map(tech => (
+                {techstack.map((tech) => (
                     <Grid
                         style={{
                             display: 'flex',
@@ -45,6 +45,8 @@ export function TechGrid() {
                                 content={
                                     <Text color='white' b>
                                         {tech.name}
+                                        {tech.secondLine &&
+                                            '/' + tech.secondLine}
                                     </Text>
                                 }
                                 rounded
