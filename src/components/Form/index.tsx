@@ -20,7 +20,7 @@ interface Inputs {
     user_message: string
 }
 
-export function Form({ activeLink }) {
+export function Form() {
     const [success, setSuccess] = useState<boolean>(false)
     const [error, setError] = useState<boolean>(false)
 
@@ -90,10 +90,7 @@ export function Form({ activeLink }) {
                     <ButtonClearForm onClick={reset} />
                 </Row>
             </form>
-            <SuccessModal
-                activeLink={activeLink}
-                success={[success, setSuccess]}
-            />
+            <SuccessModal success={[success, setSuccess]} />
             <ErrorModal error={[error, setError]} />
         </>
     )

@@ -6,7 +6,7 @@ import { Layout } from '../src/components'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
 
-export default function Contact({ activeLink }) {
+export default function Contact() {
     const { isDark } = useTheme()
 
     return (
@@ -35,7 +35,7 @@ export default function Contact({ activeLink }) {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4 }}
             >
-                <Form activeLink={activeLink} />
+                <Form />
             </motion.div>
         </Layout>
     )
