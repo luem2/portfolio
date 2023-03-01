@@ -3,7 +3,11 @@ import React from 'react'
 import {
     htmlLogo,
     cssLogo,
-    javascriptLogo,
+    sassLogo,
+    tailwindLogo,
+    javaScriptLogo,
+    typeScriptLogo,
+    dockerLogo,
     reactLogo,
     reduxLogo,
     nextjsLogo,
@@ -12,11 +16,6 @@ import {
     sequelizeLogo,
     postgresqlLogo,
     gitLogo,
-    postcssLogo,
-    sassLogo,
-    styledComponentsLogo,
-    notionLogo,
-    trelloLogo,
     henryGames,
     rgbTech,
     henryGamesLogo,
@@ -42,23 +41,42 @@ export const techstack = [
     },
 
     {
-        name: 'Javascript',
-        img: javascriptLogo,
+        name: 'SASS',
+        img: sassLogo,
     },
 
+    {
+        name: 'Tailwind',
+        img: tailwindLogo,
+    },
     {
         name: 'GIT',
         img: gitLogo,
     },
 
     {
-        name: 'React',
-        img: reactLogo,
+        name: 'JavaScript',
+        img: javaScriptLogo,
+    },
+
+    {
+        name: 'TypeScript',
+        img: typeScriptLogo,
+    },
+
+    {
+        name: 'Docker',
+        img: dockerLogo,
     },
 
     {
         name: 'Next JS',
         img: nextjsLogo,
+    },
+
+    {
+        name: 'React/React Native',
+        img: reactLogo,
     },
 
     {
@@ -78,38 +96,13 @@ export const techstack = [
     },
 
     {
-        name: 'Sequelize',
-        img: sequelizeLogo,
-    },
-
-    {
         name: 'PostgreSQL',
         img: postgresqlLogo,
     },
 
     {
-        name: 'PostCSS',
-        img: postcssLogo,
-    },
-
-    {
-        name: 'SASS',
-        img: sassLogo,
-    },
-
-    {
-        name: 'Styled Components',
-        img: styledComponentsLogo,
-    },
-
-    {
-        name: 'Notion',
-        img: notionLogo,
-    },
-
-    {
-        name: 'Trello',
-        img: trelloLogo,
+        name: 'Sequelize',
+        img: sequelizeLogo,
     },
 
     {
@@ -132,11 +125,11 @@ export const projectData = [
         gh: 'https://github.com/Luem2/pi-videogames',
         web: 'https://henrygames.lucianopinol.com/',
         logo: henryGamesLogo,
-        description:
-            'Small application to search and create game information, filter by name, rating, genre and origin. For more information, check the repository.',
+        description: `Individual project done at Henry's Bootcamp, is an application to search and create game information, filter by name, rating, genre and origin.`,
         technologies: {
-            frontend: 'React, Redux',
-            backend: ' Express, NodeJS, PostgreSQL, Sequelize',
+            frontend: 'Typescript, React, Redux, Docker',
+            backend:
+                'Typescript, Express, NodeJS, PostgreSQL, Sequelize, Swagger, Docker',
         },
     },
     {
