@@ -8,11 +8,11 @@ import { FormattedMessage } from 'react-intl'
 import { HamburgerButton } from '../HamburgerButton'
 import styles from '/styles/Navbar.module.css'
 import { CV_SPANISH } from '../../constants'
-import { useCv } from '../../store/useCv'
+import { useCvStore } from '../../store/useCvStore'
 
 export default function NavigateBar({ activeLink, activeMenu }) {
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const { cvLang } = useCv()
+    const { cvLang } = useCvStore()
 
     const [active, setActive] = activeLink
     const sidebarMenuIsOpen = activeMenu[0]

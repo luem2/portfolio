@@ -6,11 +6,11 @@ interface CvState {
     setCvLang: (lang: string) => void
 }
 
-export const useCv = create<CvState>()((set) => {
+export const useCvStore = create<CvState>()((set) => {
     return {
         cvLang: CV_SPANISH,
         setCvLang: (lang) =>
-            set((_state) => {
+            set(() => {
                 return {
                     cvLang: lang,
                 }

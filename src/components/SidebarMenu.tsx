@@ -5,11 +5,11 @@ import { sidebarData } from '../constants'
 import { Button, Text, useTheme } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
 import styles from '/styles/SidebarMenu.module.css'
-import { useCv } from '../store/useCv'
+import { useCvStore } from '../store/useCvStore'
 
 export function SidebarMenu({ activeLink, activeMenu }) {
     const [active, setActive] = activeLink
-    const { cvLang } = useCv()
+    const { cvLang } = useCvStore()
 
     const [openMenu, setOpenMenu] = activeMenu
     const { isDark } = useTheme()
