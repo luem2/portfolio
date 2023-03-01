@@ -3,17 +3,20 @@ import React, { useState, useContext, useEffect } from 'react'
 import { Image } from '@nextui-org/react'
 import { LangContext } from '../../context/langContext'
 import { spainSVG, usaSVG } from '../../assets'
+import { CV_ENGLISH, CV_SPANISH } from '../../constants'
 
-export function LanguageSwitch() {
+export function LanguageSwitch({ setCvLang }) {
     const { locale, setLang } = useContext(LangContext)
     const [langImg, setLangImg] = useState()
 
     const toggleLang = () => {
         if (locale === 'es-MX') {
             setLang('en-US')
+            setCvLang(CV_ENGLISH)
             setLangImg(usaSVG.src)
         } else {
             setLang('es-MX')
+            setCvLang(CV_SPANISH)
             setLangImg(spainSVG.src)
         }
     }
@@ -21,14 +24,19 @@ export function LanguageSwitch() {
     useEffect(() => {
         if (window.localStorage.getItem('lang') === null) {
             window.localStorage.setItem('lang', 'en-US')
+            setCvLang(CV_ENGLISH)
             setLangImg(usaSVG.src)
             return
         }
 
-        window.localStorage.getItem('lang') === 'es-MX'
-            ? setLangImg(spainSVG.src)
-            : setLangImg(usaSVG.src)
-    }, [langImg])
+        if (window.localStorage.getItem('lang') === 'es-MX') {
+            setLangImg(spainSVG.src)
+            setCvLang(CV_SPANISH)
+        } else {
+            setLangImg(usaSVG.src)
+            setCvLang(CV_ENGLISH)
+        }
+    }, [langImg, setCvLang])
 
     return (
         <Image
