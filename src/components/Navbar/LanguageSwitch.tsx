@@ -4,9 +4,11 @@ import { Image } from '@nextui-org/react'
 import { LangContext } from '../../context/langContext'
 import { spainSVG, usaSVG } from '../../assets'
 import { CV_ENGLISH, CV_SPANISH } from '../../constants'
+import { useCv } from '../../store/useCv'
 
-export function LanguageSwitch({ setCvLang }) {
+export function LanguageSwitch() {
     const { locale, setLang } = useContext(LangContext)
+    const { setCvLang } = useCv()
     const [langImg, setLangImg] = useState()
 
     const toggleLang = () => {

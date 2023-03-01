@@ -5,9 +5,12 @@ import { sidebarData } from '../constants'
 import { Button, Text, useTheme } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
 import styles from '/styles/SidebarMenu.module.css'
+import { useCv } from '../store/useCv'
 
 export function SidebarMenu({ activeLink, activeMenu }) {
     const [active, setActive] = activeLink
+    const { cvLang } = useCv()
+
     const [openMenu, setOpenMenu] = activeMenu
     const { isDark } = useTheme()
 
@@ -28,7 +31,7 @@ export function SidebarMenu({ activeLink, activeMenu }) {
             ].join(' ')}
         >
             <ul className={styles.ul}>
-                {sidebarData.map(item => {
+                {sidebarData.map((item) => {
                     let itemLink
 
                     item.path === '/'
@@ -82,7 +85,7 @@ export function SidebarMenu({ activeLink, activeMenu }) {
                         marginTop: '0.5rem',
                         alignSelf: 'center',
                     }}
-                    href='/cv-luciano-pinol-fullstack.pdf'
+                    href={cvLang}
                     target='_blank'
                     rel='noopener noreferrer'
                 >

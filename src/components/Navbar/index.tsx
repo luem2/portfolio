@@ -7,12 +7,12 @@ import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons'
 import { FormattedMessage } from 'react-intl'
 import { HamburgerButton } from '../HamburgerButton'
 import styles from '/styles/Navbar.module.css'
+import { CV_SPANISH } from '../../constants'
+import { useCv } from '../../store/useCv'
 
 export default function NavigateBar({ activeLink, activeMenu }) {
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const [cvLang, setCvLang] = useState<string>(
-        '/cv-luciano-pinol-spanish.pdf'
-    )
+    const { cvLang } = useCv()
 
     const [active, setActive] = activeLink
     const sidebarMenuIsOpen = activeMenu[0]
@@ -158,8 +158,8 @@ export default function NavigateBar({ activeLink, activeMenu }) {
             </Navbar.Content>
 
             {/* UTILITY ICONS */}
-            <UtilityIcons setCvLang={setCvLang} />
-            <UtilityIconsCompacted setCvLang={setCvLang} />
+            <UtilityIcons />
+            <UtilityIconsCompacted />
 
             {/* LOGO in MD Resolution */}
             <Navbar.Content showIn='md'>

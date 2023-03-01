@@ -17,7 +17,7 @@ import { useTheme } from '@nextui-org/react'
 import { LanguageSwitch } from './LanguageSwitch'
 import { Box } from '../Box'
 
-export function UtilityIcons({ setCvLang }) {
+export function UtilityIcons() {
     const { setTheme } = useNextTheme()
     const { isDark } = useTheme()
     return (
@@ -113,7 +113,7 @@ export function UtilityIcons({ setCvLang }) {
                     </a>
                 </Navbar.Item>
                 <Navbar.Item>
-                    <LanguageSwitch setCvLang={setCvLang} />
+                    <LanguageSwitch />
                 </Navbar.Item>
                 <Navbar.Item>
                     <Switch
@@ -132,7 +132,7 @@ export function UtilityIcons({ setCvLang }) {
     )
 }
 
-export function UtilityIconsCompacted({ setCvLang }) {
+export function UtilityIconsCompacted() {
     const { setTheme } = useNextTheme()
     const { isDark } = useTheme()
     return (
@@ -225,7 +225,7 @@ export function UtilityIconsCompacted({ setCvLang }) {
                                 marginTop: '0.2rem',
                             }}
                         >
-                            <LanguageSwitch setCvLang={setCvLang} />
+                            <LanguageSwitch />
                         </div>
                         <Switch
                             checked={isDark}
