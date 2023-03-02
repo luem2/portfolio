@@ -40,6 +40,7 @@ export function TechGrid() {
                         >
                             <Tooltip
                                 css={{
+                                    marginTop: '$2',
                                     '@xsMax': { display: 'none' },
                                 }}
                                 content={

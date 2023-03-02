@@ -38,8 +38,8 @@
     "form.nameInputValid": "Nombre correcto",
     "form.nameInputInvalid": "Al menos 5 caracteres",
 
-    "form.emailInputDefault": "Ingrese su correo electrónico",
-    "form.emailPlaceholder": "Correo electrónico",
+    "form.emailInputDefault": "Ingrese su correo",
+    "form.emailPlaceholder": "Correo",
     "form.emailInputValid": "Correo correcto",
     "form.emailInputInvalid": "Ingrese un correo válido",
 

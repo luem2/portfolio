@@ -16,7 +16,6 @@ import useHelperMessage from '../../hooks/useHelper'
 import { FaTelegramPlane } from 'react-icons/fa'
 import { AiOutlineClear } from 'react-icons/ai'
 import { FormattedMessage } from 'react-intl'
-import { motion } from 'framer-motion'
 
 interface Inputs {
     user_name: string

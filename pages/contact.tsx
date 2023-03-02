@@ -1,7 +1,6 @@
 import React from 'react'
 import { Text, useTheme } from '@nextui-org/react'
 import { Form } from '../src/components'
-import { GrMail } from '../src/assets'
 import { Layout } from '../src/components'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
@@ -26,8 +25,7 @@ export default function Contact() {
                     <FormattedMessage
                         id='contact.title'
                         defaultMessage='Get in touch'
-                    />{' '}
-                    <GrMail color={isDark ? 'white' : 'black'} size={40} />
+                    />
                 </Text>
             </motion.div>
             <motion.div
