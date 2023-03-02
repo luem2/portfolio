@@ -1,23 +1,18 @@
 import React from 'react'
 import { Card, Text, Image } from '@nextui-org/react'
+import styles from '../../../styles/TechCard.module.css'
 
 export function TechCard({ tech }) {
     return (
         <Card
             css={{
-                display: 'flex',
-                justifyContent: 'center',
                 background: 'transparent',
-                border: '2px solid transparent',
-                '&:hover': {
-                    border: '2px solid lightblue',
-                    borderColor: '$blue500',
-                },
             }}
             isHoverable
         >
             <Card.Body>
                 <Image
+                    className={styles.tech}
                     css={{
                         backgroundColor: tech.dark && 'white',
                     }}
