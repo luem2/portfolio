@@ -1,27 +1,32 @@
-import React from 'react'
-import { Input } from '@nextui-org/react'
-import { FormattedMessage } from 'react-intl'
+import type { IHelper, InputForm } from '../../../../types/types'
 
-export function EmailInput({ helperEmail, props }) {
+import { FormattedMessage } from 'react-intl'
+import { Input } from '@nextui-org/react'
+
+interface Props extends InputForm {
+    helperEmail: IHelper
+}
+
+export function EmailInput({ helperEmail, props }: Props) {
     return (
         <Input
             {...props}
-            name='user_email'
-            shadow={false}
-            status={helperEmail.color}
+            bordered
+            required
             color={helperEmail.color}
             helperColor={helperEmail.color}
             helperText={helperEmail.text}
-            size='lg'
-            type='email'
             labelPlaceholder={
                 <FormattedMessage
-                    id='form.emailPlaceholder'
                     defaultMessage='Email'
+                    id='form.emailPlaceholder'
                 />
             }
-            bordered
-            required
+            name='user_email'
+            shadow={false}
+            size='lg'
+            status={helperEmail.color}
+            type='email'
         />
     )
 }

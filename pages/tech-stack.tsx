@@ -1,24 +1,24 @@
-import React from 'react'
-import { Layout, TechGrid } from '../src/components'
 import { Text } from '@nextui-org/react'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
 
+import { Layout, TechGrid } from '../src/components'
+
 export default function TechStack() {
     return (
         <Layout
-            pageTitle='Tech Stack'
             pageDescription='This is my technologies stack for development'
+            pageTitle='Tech Stack'
         >
             <motion.div
-                initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
+                initial={{ x: -100, opacity: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <Text css={{ marginBottom: '$15' }} h1 color='$pink600'>
+                <Text h1 color='$pink600' css={{ marginBottom: '$15' }}>
                     <FormattedMessage
-                        id='techStack.title'
                         defaultMessage='Tech Stack'
+                        id='techStack.title'
                     />
                 </Text>
             </motion.div>

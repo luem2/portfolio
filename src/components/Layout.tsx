@@ -1,20 +1,29 @@
-import React from 'react'
 import Head from 'next/head'
-import { Box } from './Box'
 import { Container } from '@nextui-org/react'
+
+import { Box } from './Box'
+
+interface Props {
+    children: JSX.Element | JSX.Element[]
+    pageTitle: string
+    pageDescription: string
+    container?: {
+        [name: string]: unknown
+    }
+}
 
 export function Layout({
     children,
     pageTitle,
     pageDescription,
     container = {},
-}) {
+}: Props) {
     return (
         <>
             <Head>
                 <title>{`Luciano Piñol - ${pageTitle || 'Portfolio'}`}</title>
-                <meta name='description' content={pageDescription} />
-                <link rel='icon' href='/favicon.ico' />
+                <meta content={pageDescription} name='description' />
+                <link href='/favicon.ico' rel='icon' />
             </Head>
             <Box
                 css={{
@@ -25,10 +34,10 @@ export function Layout({
                 }}
             >
                 <Container
-                    display='flex'
-                    direction='column'
-                    justify='center'
                     alignItems='center'
+                    direction='column'
+                    display='flex'
+                    justify='center'
                 >
                     {children}
                 </Container>

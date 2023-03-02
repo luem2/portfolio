@@ -1,23 +1,22 @@
-import { useState, useEffect, createContext } from 'react'
-
+import { useState, useEffect, createContext, Context } from 'react'
 import { IntlProvider } from 'react-intl'
+
 import EnglishMessages from '../lang/en-US.json'
 import SpanishMessages from '../lang/es-MX.json'
 
 type LangContextType = 'es-MX' | 'en-US'
 
-// interface ILang {
-//     locale: LangContextType
-//     setLang: (lang: LangContextType) => void
-// }
-
 interface Props {
     children: JSX.Element | JSX.Element[]
 }
 
-const LangContext = createContext({
+interface PropsContext {
+    locale: string
+    setLang?: (lang: LangContextType) => void
+}
+
+const LangContext: Context<PropsContext> = createContext({
     locale: '',
-    setLang: (lang: LangContextType) => {},
 })
 
 function LangProvider({ children }: Props) {
@@ -44,7 +43,8 @@ function LangProvider({ children }: Props) {
     }
 
     useEffect(() => {
-        let lang = window.localStorage.getItem('lang')
+        const lang = window.localStorage.getItem('lang')
+
         if (lang === null) {
             window.localStorage.setItem('lang', 'en-US')
         } else {

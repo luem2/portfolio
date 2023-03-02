@@ -1,10 +1,16 @@
-import React from 'react'
+import type { Dispatch, SetStateAction } from 'react'
+
 import { Button, Modal, Text } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { FormattedMessage } from 'react-intl'
+
 import { useStore } from '../../../store/useStore'
 
-export function SuccessModal({ success }) {
+interface Props {
+    success: [boolean, Dispatch<SetStateAction<boolean>>]
+}
+
+export function SuccessModal({ success }: Props) {
     const [visible, setVisible] = success
 
     const { setActiveLink } = useStore()
@@ -19,17 +25,17 @@ export function SuccessModal({ success }) {
     return (
         <>
             <Modal
-                closeButton
                 animated
                 blur
+                closeButton
                 open={visible}
                 onClose={closeHandler}
             >
                 <Modal.Header>
                     <Text b size={18}>
                         <FormattedMessage
-                            id='modal.successTitle'
                             defaultMessage='Thanks for contacting me ✅'
+                            id='modal.successTitle'
                         />
                     </Text>
                 </Modal.Header>
@@ -41,19 +47,19 @@ export function SuccessModal({ success }) {
                         }}
                     >
                         <FormattedMessage
-                            id='modal.successBody'
                             defaultMessage='I will answer you soon 😃'
+                            id='modal.successBody'
                         />
                     </Text>
                     <Button
-                        color='success'
                         auto
+                        color='success'
                         onClick={() => setVisible(false)}
                     >
                         <Text b size={16}>
                             <FormattedMessage
-                                id='modal.button'
                                 defaultMessage='Return'
+                                id='modal.button'
                             />
                         </Text>
                     </Button>

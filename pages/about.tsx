@@ -1,10 +1,10 @@
-import React from 'react'
-import { Box, Layout } from '../src/components'
-import { Button, Image, Text, useTheme } from '@nextui-org/react'
-import { GrMail, FaRocket, profilePhoto } from '../src/assets'
+import { Image, Text, useTheme } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
+
+import { GrMail, FaRocket, profilePhoto } from '../src/assets'
+import { Box, Layout } from '../src/components'
 import { useStore } from '../src/store/useStore'
 import { ButtonMotion } from '../src/components/Button'
 
@@ -29,41 +29,41 @@ export default function About() {
 
     return (
         <Layout
-            pageTitle='About'
             pageDescription='A little about who I am and my education'
+            pageTitle='About'
         >
             <motion.div
-                initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
+                initial={{ x: -100, opacity: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <Text css={{ marginBottom: '$15' }} h1 color='$blue800'>
+                <Text h1 color='$blue800' css={{ marginBottom: '$15' }}>
                     <FormattedMessage
-                        id='about.title'
                         defaultMessage='About me'
+                        id='about.title'
                     />
                 </Text>
             </motion.div>
 
             <motion.div
-                initial='hidden'
                 animate='visible'
-                exit='hidden'
                 custom={{ delay: 0.3 }}
+                exit='hidden'
+                initial='hidden'
                 variants={variants}
             >
                 <Text
+                    em
+                    h2
+                    i
                     css={{
                         textAlign: 'center',
                         marginBottom: '$18',
                     }}
-                    i
-                    em
-                    h2
                 >
                     <FormattedMessage
-                        id='about.h2'
                         defaultMessage='Hi there! Let me introduce myself...'
+                        id='about.h2'
                     />
                 </Text>
 
@@ -87,7 +87,6 @@ export default function About() {
                         }}
                     >
                         <Text
-                            size='$xl'
                             css={{
                                 maxWidth: '600px',
                                 textAlign: 'flex-start',
@@ -102,9 +101,9 @@ export default function About() {
                                     borderRadius: '$md',
                                 },
                             }}
+                            size='$xl'
                         >
                             <FormattedMessage
-                                id='about.p1'
                                 defaultMessage=' I am a Full Stack Developer, constantly learning to be able to
               perform a higher quality result in each job. I like to experiment
               and learn about new technologies, programming languages, operating
@@ -112,13 +111,14 @@ export default function About() {
 preference for the backend, although I like the frontend a lot
               too. I am interested in blockchain, web3, cryptography and
               cybersecurity, in which I plan to train for it in the near future.'
+                                id='about.p1'
                             />
 
                             <br />
                             <br />
                         </Text>
                         <Text
-                            size='$xl'
+                            b
                             css={{
                                 '@mdMax': {
                                     textAlign: 'center',
@@ -127,16 +127,16 @@ preference for the backend, although I like the frontend a lot
                                     fontSize: '$lg',
                                 },
                             }}
-                            b
+                            size='$xl'
                         >
                             <FormattedMessage
-                                id='about.p2'
                                 defaultMessage='Thank you for taking the time to read about me.'
+                                id='about.p2'
                             />
                             <br />
                             <FormattedMessage
-                                id='about.p3'
                                 defaultMessage='Lets talk, contact me!'
+                                id='about.p3'
                             />
                         </Text>
                         <Box
@@ -157,6 +157,13 @@ preference for the backend, although I like the frontend a lot
                             {/* Buttons */}
 
                             <ButtonMotion
+                                formattedMessage={
+                                    <FormattedMessage
+                                        defaultMessage='Get in Touch!'
+                                        id='about.getInTouch'
+                                    />
+                                }
+                                icon={<GrMail size={25} />}
                                 styles={{
                                     marginTop: '$10',
                                     zIndex: '$1',
@@ -164,19 +171,20 @@ preference for the backend, although I like the frontend a lot
                                     alignSelf: 'center',
                                 }}
                                 type='button'
-                                formattedMessage={
-                                    <FormattedMessage
-                                        id='about.getInTouch'
-                                        defaultMessage='Get in Touch!'
-                                    />
-                                }
                                 onPress={() => {
                                     router.push('/contact')
                                     setActiveLink('contact')
                                 }}
-                                icon={<GrMail size={25} />}
                             />
                             <ButtonMotion
+                                backgroundColor='$purple700'
+                                formattedMessage={
+                                    <FormattedMessage
+                                        defaultMessage='See my projects!'
+                                        id='about.seeProjects'
+                                    />
+                                }
+                                icon={<FaRocket size={25} />}
                                 styles={{
                                     marginTop: '$10',
                                     zIndex: '$1',
@@ -184,23 +192,16 @@ preference for the backend, although I like the frontend a lot
                                     alignSelf: 'center',
                                 }}
                                 type='button'
-                                backgroundColor='$purple700'
-                                formattedMessage={
-                                    <FormattedMessage
-                                        id='about.seeProjects'
-                                        defaultMessage='See my projects!'
-                                    />
-                                }
                                 onPress={() => {
                                     router.push('/projects')
                                     setActiveLink('projects')
                                 }}
-                                icon={<FaRocket size={25} />}
                             />
                         </Box>
                     </Box>
 
                     <Image
+                        alt='profilePhoto'
                         css={{
                             maxWidth: '100%',
                             filter: 'grayscale(100%)',
@@ -221,10 +222,9 @@ preference for the backend, although I like the frontend a lot
                                 height: 300,
                             },
                         }}
-                        src={profilePhoto.src}
-                        alt='profilePhoto'
-                        width='auto'
                         height='auto'
+                        src={profilePhoto.src}
+                        width='auto'
                     />
                 </Box>
             </motion.div>

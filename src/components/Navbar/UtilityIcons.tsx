@@ -1,5 +1,8 @@
-import React from 'react'
 import { Button, Navbar, Switch } from '@nextui-org/react'
+import { Popover } from '@nextui-org/react'
+import { useTheme as useNextTheme } from 'next-themes'
+import { useTheme } from '@nextui-org/react'
+
 import {
     AiOutlineTwitter,
     AiFillLinkedin,
@@ -11,15 +14,14 @@ import {
     VscColorMode,
     MdGTranslate,
 } from '../../assets'
-import { Popover } from '@nextui-org/react'
-import { useTheme as useNextTheme } from 'next-themes'
-import { useTheme } from '@nextui-org/react'
-import { LanguageSwitch } from './LanguageSwitch'
 import { Box } from '../Box'
+
+import { LanguageSwitch } from './LanguageSwitch'
 
 export function UtilityIcons() {
     const { setTheme } = useNextTheme()
     const { isDark } = useTheme()
+
     return (
         <>
             <Navbar.Content
@@ -39,12 +41,12 @@ export function UtilityIcons() {
                     }}
                 >
                     <a
+                        href='https://www.linkedin.com/in/lucianopinol'
+                        rel='noreferrer'
                         style={{
                             color: isDark ? 'white' : '#1F1F1F',
                         }}
-                        href='https://www.linkedin.com/in/lucianopinol'
                         target='_blank'
-                        rel='noreferrer'
                     >
                         <AiFillLinkedin size={25} />
                     </a>
@@ -60,12 +62,12 @@ export function UtilityIcons() {
                     }}
                 >
                     <a
+                        href='https://www.github.com/luem2'
+                        rel='noreferrer'
                         style={{
                             color: isDark ? 'white' : '#1F1F1F',
                         }}
-                        href='https://www.github.com/luem2'
                         target='_blank'
-                        rel='noreferrer'
                     >
                         <AiFillGithub size={25} />
                     </a>
@@ -81,12 +83,12 @@ export function UtilityIcons() {
                     }}
                 >
                     <a
+                        href='https://www.twitter.com/luem08'
+                        rel='noreferrer'
                         style={{
                             color: isDark ? 'white' : '#1F1F1F',
                         }}
-                        href='https://www.twitter.com/luem08'
                         target='_blank'
-                        rel='noreferrer'
                     >
                         <AiOutlineTwitter size={25} />
                     </a>
@@ -102,12 +104,12 @@ export function UtilityIcons() {
                     }}
                 >
                     <a
+                        href='https://t.me/luem02'
+                        rel='noreferrer'
                         style={{
                             color: isDark ? 'white' : '#1F1F1F ',
                         }}
-                        href='https://t.me/luem02'
                         target='_blank'
-                        rel='noreferrer'
                     >
                         <FaTelegramPlane size={25} />
                     </a>
@@ -119,9 +121,9 @@ export function UtilityIcons() {
                     <Switch
                         checked={isDark}
                         color='secondary'
-                        size='md'
                         iconOff={<BsFillMoonFill />}
                         iconOn={<BsFillSunFill />}
+                        size='md'
                         onChange={(e) =>
                             setTheme(e.target.checked ? 'dark' : 'light')
                         }
@@ -135,23 +137,24 @@ export function UtilityIcons() {
 export function UtilityIconsCompacted() {
     const { setTheme } = useNextTheme()
     const { isDark } = useTheme()
+
     return (
         <Navbar.Content showIn='xs'>
             <Popover>
                 <Popover.Trigger>
-                    <Button color='gradient' auto ghost shadow animated>
+                    <Button animated auto ghost shadow color='gradient'>
                         <IoShareSocialSharp size={20} />
                         <MdGTranslate
+                            size={20}
                             style={{
                                 marginLeft: '10px',
                             }}
-                            size={20}
                         />
                         <VscColorMode
+                            size={20}
                             style={{
                                 marginLeft: '10px',
                             }}
-                            size={20}
                         />
                     </Button>
                 </Popover.Trigger>
@@ -168,46 +171,46 @@ export function UtilityIconsCompacted() {
                     }}
                 >
                     <a
+                        href='https://www.linkedin.com/in/lucianopinol'
+                        rel='noreferrer'
                         style={{
                             paddingRight: '10px',
                             color: isDark ? 'white' : '#1F1F1F',
                         }}
-                        href='https://www.linkedin.com/in/lucianopinol'
                         target='_blank'
-                        rel='noreferrer'
                     >
                         <AiFillLinkedin size={25} />
                     </a>
                     <a
+                        href='https://www.github.com/luem2'
+                        rel='noreferrer'
                         style={{
                             paddingRight: '10px',
                             color: isDark ? 'white' : '#1F1F1F',
                         }}
-                        href='https://www.github.com/luem2'
                         target='_blank'
-                        rel='noreferrer'
                     >
                         <AiFillGithub size={25} />
                     </a>
                     <a
+                        href='https://www.twitter.com/luem08'
+                        rel='noreferrer'
                         style={{
                             paddingRight: '10px',
                             color: isDark ? 'white' : '#1F1F1F',
                         }}
-                        href='https://www.twitter.com/luem08'
                         target='_blank'
-                        rel='noreferrer'
                     >
                         <AiOutlineTwitter size={25} />
                     </a>
                     <a
+                        href='https://t.me/luem02'
+                        rel='noreferrer'
                         style={{
                             paddingRight: '10px',
                             color: isDark ? 'white' : '#1F1F1F ',
                         }}
-                        href='https://t.me/luem02'
                         target='_blank'
-                        rel='noreferrer'
                     >
                         <FaTelegramPlane size={25} />
                     </a>
@@ -230,9 +233,9 @@ export function UtilityIconsCompacted() {
                         <Switch
                             checked={isDark}
                             color='secondary'
-                            size='md'
                             iconOff={<BsFillMoonFill />}
                             iconOn={<BsFillSunFill />}
+                            size='md'
                             onChange={(e) =>
                                 setTheme(e.target.checked ? 'dark' : 'light')
                             }

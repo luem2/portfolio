@@ -2,6 +2,14 @@ import { Button } from '@nextui-org/react'
 import { Text } from '@nextui-org/react'
 import { motion } from 'framer-motion'
 
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    icon: React.ReactNode
+    onPress?: () => void
+    styles: { [name: string]: unknown }
+    backgroundColor?: string
+    formattedMessage: React.ReactNode
+}
+
 export function ButtonMotion({
     icon,
     type,
@@ -9,7 +17,7 @@ export function ButtonMotion({
     styles,
     backgroundColor = null,
     formattedMessage,
-}) {
+}: ButtonProps) {
     return (
         <motion.div
             whileHover={{
@@ -20,17 +28,17 @@ export function ButtonMotion({
             }}
         >
             <Button
+                auto
                 css={{
                     backgroundColor,
                     zIndex: '$1',
                     ...styles,
                 }}
+                icon={icon}
                 type={type}
                 onPress={onPress}
-                icon={icon}
-                auto
             >
-                <Text b size={16} color='white'>
+                <Text b color='white' size={16}>
                     {formattedMessage}
                 </Text>
             </Button>

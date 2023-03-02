@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from 'react'
-
+import { useState, useContext, useEffect } from 'react'
 import { Image } from '@nextui-org/react'
+
 import { LangContext } from '../../context/langContext'
 import { spainSVG, usaSVG } from '../../assets'
 import { CV_ENGLISH, CV_SPANISH } from '../../constants'
@@ -28,6 +28,7 @@ export function LanguageSwitch() {
             window.localStorage.setItem('lang', 'en-US')
             setCvLang(CV_ENGLISH)
             setLangImg(usaSVG.src)
+
             return
         }
 
@@ -42,16 +43,16 @@ export function LanguageSwitch() {
 
     return (
         <Image
+            alt={`${locale}-logo`}
             css={{
                 '&:hover': {
                     cursor: 'pointer',
                 },
             }}
-            src={langImg}
-            alt={`${locale}-logo`}
-            onClick={() => toggleLang()}
-            width={25}
             height={25}
+            src={langImg}
+            width={25}
+            onClick={() => toggleLang()}
         />
     )
 }

@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Image } from '@nextui-org/react'
 import NextLink from 'next/link'
 import { Button, Navbar } from '@nextui-org/react'
-import { logo } from '../../assets'
-import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons'
 import { FormattedMessage } from 'react-intl'
+
+import { logo } from '../../assets'
 import { HamburgerButton } from '../HamburgerButton'
+
 import styles from '/styles/Navbar.module.css'
+
 import { useStore } from '../../store/useStore'
+
+import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons'
 
 export default function NavigateBar() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -38,8 +42,8 @@ export default function NavigateBar() {
                     padding: '$0',
                 },
             }}
-            variant='sticky'
             shouldHideOnScroll={openMenu ? false : true}
+            variant='sticky'
         >
             {/* HAMBURGER BUTTON*/}
             <Navbar.Content showIn='md'>
@@ -51,19 +55,19 @@ export default function NavigateBar() {
                 <Navbar.Brand>
                     <Navbar.Toggle
                         aria-label='toggle navigation'
-                        onChange={() => !isOpen}
                         showIn='md'
+                        onChange={() => !isOpen}
                         onClick={() => setIsOpen(!isOpen)}
                     />
                     <NextLink href='/'>
                         <a>
                             <Image
-                                className={styles.logo}
-                                onClick={() => setActiveLink('/')}
-                                src={logo.src}
-                                height={75}
-                                width={75}
                                 alt='Luem Logo'
+                                className={styles.logo}
+                                height={75}
+                                src={logo.src}
+                                width={75}
+                                onClick={() => setActiveLink('/')}
                             />
                         </a>
                     </NextLink>
@@ -79,32 +83,30 @@ export default function NavigateBar() {
             >
                 <NextLink href='/'>
                     <Navbar.Link
-                        onClick={() => setActiveLink('/')}
-                        isActive={activeLink === '/'}
                         css={hoverStyle}
+                        isActive={activeLink === '/'}
+                        onClick={() => setActiveLink('/')}
                     >
                         <FormattedMessage
-                            id='navbar.home'
                             defaultMessage='Home'
+                            id='navbar.home'
                         />
                     </Navbar.Link>
                 </NextLink>
                 <NextLink href='/about'>
                     <Navbar.Link
-                        onClick={() => setActiveLink('about')}
-                        isActive={activeLink === 'about'}
                         css={hoverStyle}
+                        isActive={activeLink === 'about'}
+                        onClick={() => setActiveLink('about')}
                     >
                         <FormattedMessage
-                            id='navbar.about'
                             defaultMessage='About'
+                            id='navbar.about'
                         />
                     </Navbar.Link>
                 </NextLink>
                 <NextLink href='/tech-stack'>
                     <Navbar.Link
-                        onClick={() => setActiveLink('tech-stack')}
-                        isActive={activeLink === 'tech-stack'}
                         css={{
                             minWidth: '100%',
                             '&:hover': {
@@ -112,42 +114,44 @@ export default function NavigateBar() {
                                 fontWeight: 'bold',
                             },
                         }}
+                        isActive={activeLink === 'tech-stack'}
+                        onClick={() => setActiveLink('tech-stack')}
                     >
                         <FormattedMessage
-                            id='navbar.techStack'
                             defaultMessage='Tech Stack'
+                            id='navbar.techStack'
                         />
                     </Navbar.Link>
                 </NextLink>
                 <NextLink href='/projects'>
                     <Navbar.Link
-                        onClick={() => setActiveLink('projects')}
-                        isActive={activeLink === 'projects'}
                         css={hoverStyle}
+                        isActive={activeLink === 'projects'}
+                        onClick={() => setActiveLink('projects')}
                     >
                         <FormattedMessage
-                            id='navbar.projects'
                             defaultMessage='Projects'
+                            id='navbar.projects'
                         />
                     </Navbar.Link>
                 </NextLink>
                 <NextLink href='/contact'>
                     <Navbar.Link
-                        onClick={() => setActiveLink('contact')}
-                        isActive={activeLink === 'contact'}
                         css={hoverStyle}
+                        isActive={activeLink === 'contact'}
+                        onClick={() => setActiveLink('contact')}
                     >
                         <FormattedMessage
-                            id='navbar.contact'
                             defaultMessage='Contact'
+                            id='navbar.contact'
                         />
                     </Navbar.Link>
                 </NextLink>
-                <a href={cvLang} target='_blank' rel='noopener noreferrer'>
-                    <Button color='gradient' auto ghost shadow animated>
+                <a href={cvLang} rel='noopener noreferrer' target='_blank'>
+                    <Button animated auto ghost shadow color='gradient'>
                         <FormattedMessage
-                            id='navbar.cv'
                             defaultMessage='Download CV'
+                            id='navbar.cv'
                         />
                     </Button>
                 </a>
@@ -163,6 +167,8 @@ export default function NavigateBar() {
                     <NextLink href='/'>
                         <a>
                             <Image
+                                alt='Luem Logo'
+                                className={styles.logo}
                                 css={{
                                     '@xsMax': {
                                         height: '65px',
@@ -170,12 +176,10 @@ export default function NavigateBar() {
                                         marginTop: '5px',
                                     },
                                 }}
-                                className={styles.logo}
-                                onClick={() => setActiveLink('/')}
-                                src={logo.src}
                                 height={75}
+                                src={logo.src}
                                 width={75}
-                                alt='Luem Logo'
+                                onClick={() => setActiveLink('/')}
                             />
                         </a>
                     </NextLink>

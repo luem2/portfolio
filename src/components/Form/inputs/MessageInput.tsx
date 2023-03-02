@@ -1,26 +1,31 @@
-import React from 'react'
+import type { IHelper, InputForm } from '../../../../types/types'
+
 import { Textarea } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
 
-export function MessageInput({ helperMessage, props }) {
+interface Props extends InputForm {
+    helperMessage: IHelper
+}
+
+export function MessageInput({ helperMessage, props }: Props) {
     return (
         <Textarea
             {...props}
-            name='user_message'
-            size='lg'
             bordered
-            labelPlaceholder={
-                <FormattedMessage
-                    id='form.messagePlaceholder'
-                    defaultMessage='Message'
-                />
-            }
-            shadow={false}
-            status={helperMessage.color}
+            required
             color={helperMessage.color}
             helperColor={helperMessage.color}
             helperText={helperMessage.text}
-            required
+            labelPlaceholder={
+                <FormattedMessage
+                    defaultMessage='Message'
+                    id='form.messagePlaceholder'
+                />
+            }
+            name='user_message'
+            shadow={false}
+            size='lg'
+            status={helperMessage.color}
         />
     )
 }

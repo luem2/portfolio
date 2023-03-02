@@ -1,21 +1,22 @@
-import { Row, Spacer } from '@nextui-org/react'
 import emailjs from '@emailjs/browser'
+import { Row, Spacer } from '@nextui-org/react'
 import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { FaTelegramPlane } from 'react-icons/fa'
+import { AiOutlineClear } from 'react-icons/ai'
+import { FormattedMessage } from 'react-intl'
+
+import { ButtonMotion } from '../Button'
+import useHelperName from '../../hooks/useHelper'
+import useHelperEmail from '../../hooks/useHelper'
+import useHelperMessage from '../../hooks/useHelper'
 
 import { EmailInput } from './inputs/EmailInput'
 import { MessageInput } from './inputs/MessageInput'
 import { NameInput } from './inputs/NameInput'
 import { ErrorModal } from './modals/ErrorModal'
 import { SuccessModal } from './modals/SuccessModal'
-import { ButtonMotion } from '../Button'
 import { validateEmail } from './helpers'
-import useHelperName from '../../hooks/useHelper'
-import useHelperEmail from '../../hooks/useHelper'
-import useHelperMessage from '../../hooks/useHelper'
-import { FaTelegramPlane } from 'react-icons/fa'
-import { AiOutlineClear } from 'react-icons/ai'
-import { FormattedMessage } from 'react-intl'
 
 interface Inputs {
     user_name: string
@@ -58,7 +59,7 @@ export function Form() {
                 '9asy4anV7AwZnUZZE'
             )
             .then((result) =>
-                console.log('Form sent successfully', {
+                console.info('Form sent successfully', {
                     status: result.status,
                     form,
                 })
@@ -89,30 +90,30 @@ export function Form() {
 
                 <Row>
                     <ButtonMotion
-                        styles={null}
                         backgroundColor={'$pink700'}
-                        icon={<FaTelegramPlane size={20} />}
-                        type='submit'
                         formattedMessage={
                             <FormattedMessage
-                                id='contact.submit'
                                 defaultMessage='Submit'
+                                id='contact.submit'
                             />
                         }
+                        icon={<FaTelegramPlane size={20} />}
+                        styles={null}
+                        type='submit'
                     />
                     <Spacer x={0.6} />
                     <ButtonMotion
-                        styles={null}
                         backgroundColor={'$purple700'}
-                        icon={<AiOutlineClear size={20} />}
-                        type='reset'
-                        onPress={reset}
                         formattedMessage={
                             <FormattedMessage
-                                id='contact.clear'
                                 defaultMessage='Clear'
+                                id='contact.clear'
                             />
                         }
+                        icon={<AiOutlineClear size={20} />}
+                        styles={null}
+                        type='reset'
+                        onPress={reset}
                     />
                 </Row>
             </form>

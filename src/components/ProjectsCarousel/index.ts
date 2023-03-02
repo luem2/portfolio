@@ -1,2 +1,2 @@
-export * from './ProjectsCarousel'
-export * from './ProjectCard'
+export * from './ProjectsCarousel';
+export * from './ProjectCard';

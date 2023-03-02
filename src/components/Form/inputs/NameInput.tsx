@@ -1,27 +1,32 @@
-import React from 'react'
+import type { IHelper, InputForm } from '../../../../types/types'
+
 import { Input } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
 
-export function NameInput({ helperName, props }) {
+interface Props extends InputForm {
+    helperName: IHelper
+}
+
+export function NameInput({ helperName, props }: Props) {
     return (
         <Input
             {...props}
-            name='user_name'
-            shadow={false}
-            status={helperName.color}
+            bordered
+            required
             color={helperName.color}
             helperColor={helperName.color}
             helperText={helperName.text}
-            size='lg'
-            type='text'
             labelPlaceholder={
                 <FormattedMessage
-                    id='form.namePlaceholder'
                     defaultMessage='Name'
+                    id='form.namePlaceholder'
                 />
             }
-            bordered
-            required
+            name='user_name'
+            shadow={false}
+            size='lg'
+            status={helperName.color}
+            type='text'
         />
     )
 }

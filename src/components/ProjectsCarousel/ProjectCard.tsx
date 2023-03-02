@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import type { IProject } from '../../../types/types'
+
+import { useState } from 'react'
 import {
     Button,
     Card,
@@ -9,12 +11,17 @@ import {
     Container,
     Image,
 } from '@nextui-org/react'
-import { AiFillInfoCircle } from '../../assets'
-import { ButtonGroup } from '../ButtonGroup'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
 
-export function ProjectCard({ project }) {
+import { AiFillInfoCircle } from '../../assets'
+import { ButtonGroup } from '../ButtonGroup'
+
+interface Props {
+    project: IProject
+}
+
+export function ProjectCard({ project }: Props) {
     const [active, setActive] = useState(false)
     const modalHandler = () => {
         setActive(!active)
@@ -35,16 +42,15 @@ export function ProjectCard({ project }) {
 
     return (
         <motion.div
-            initial='hidden'
             animate='visible'
-            exit='hidden'
             custom={{ delay: 0.05 }}
+            exit='hidden'
+            initial='hidden'
             variants={variants}
         >
             <Card
-                isPressable
                 isHoverable
-                variant='shadow'
+                isPressable
                 css={{
                     position: 'relative',
                     marginTop: '$13',
@@ -55,6 +61,7 @@ export function ProjectCard({ project }) {
                         transition: 'all 0.5s ease-in-out',
                     },
                 }}
+                variant='shadow'
                 onClick={() => modalHandler()}
             >
                 <Card.Body
@@ -77,7 +84,11 @@ export function ProjectCard({ project }) {
                 >
                     <ButtonGroup project={project} />
                     <Button
-                        icon={<AiFillInfoCircle size={25} />}
+                        animated
+                        auto
+                        ghost
+                        shadow
+                        color='gradient'
                         css={{
                             display: 'flex',
                             justifyContent: 'center',
@@ -86,28 +97,24 @@ export function ProjectCard({ project }) {
                             bottom: '$20',
                             left: '$16',
                         }}
-                        color='gradient'
-                        auto
-                        ghost
-                        shadow
-                        animated
+                        icon={<AiFillInfoCircle size={25} />}
                         onClick={() => modalHandler()}
                     >
                         <Text b>
                             <FormattedMessage
-                                id='projects.moreInfo'
                                 defaultMessage='More info'
+                                id='projects.moreInfo'
                             />
                         </Text>
                     </Button>
                 </Card.Body>
                 <Card.Image
-                    src={project.src.src}
                     alt={project.alt}
-                    objectFit='cover'
-                    width='100%'
                     height={'100%'}
-                ></Card.Image>
+                    objectFit='cover'
+                    src={project.src.src}
+                    width='100%'
+                />
                 <Card.Footer>
                     <Col
                         css={{
@@ -119,8 +126,8 @@ export function ProjectCard({ project }) {
                         }}
                     >
                         <Avatar
-                            color='gradient'
                             bordered
+                            color='gradient'
                             css={{
                                 display: 'flex',
                                 marginRight: '$4',
@@ -128,30 +135,30 @@ export function ProjectCard({ project }) {
                             }}
                             src={project.logo.src}
                         />
-                        <Text h3 b>
+                        <Text b h3>
                             {project.name}
                         </Text>
                     </Col>
                 </Card.Footer>
                 <Modal
-                    scroll
                     blur
                     closeButton
+                    scroll
                     open={active}
                     onClose={modalHandler}
                 >
                     <Modal.Header>
-                        <Text size='$4xl' h3 b>
+                        <Text b h3 size='$4xl'>
                             <Image
-                                src={project.logo.src}
                                 alt={project.alt}
-                                width={100}
                                 height={100}
+                                src={project.logo.src}
+                                width={100}
                             />
                             <Container
+                                direction='column'
                                 display='flex'
                                 justify='center'
-                                direction='column'
                             >
                                 {project.name}
                             </Container>
@@ -160,20 +167,20 @@ export function ProjectCard({ project }) {
                     <Modal.Body>
                         <Text b color='#b74aed'>
                             <FormattedMessage
-                                id='projects.description.title'
                                 defaultMessage='Description:'
+                                id='projects.description.title'
                             />
                         </Text>
                         <Text>
                             <FormattedMessage
-                                id={`projects.${project.id}.description`}
                                 defaultMessage={project.description}
+                                id={`projects.${project.id}.description`}
                             />
                         </Text>
                         <Text b color='#b74aed'>
                             <FormattedMessage
-                                id='projects.technologies.title'
                                 defaultMessage='Technologies:'
+                                id='projects.technologies.title'
                             />
                         </Text>
                         <li>

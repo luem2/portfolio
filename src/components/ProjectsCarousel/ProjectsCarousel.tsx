@@ -1,9 +1,9 @@
-import React from 'react'
-
 import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { ProjectCard } from './ProjectCard'
+
 import { projectData } from '../../constants'
+
+import { ProjectCard } from './ProjectCard'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -13,17 +13,7 @@ export function ProjectsCarousel() {
     return (
         <>
             <Swiper
-                style={{
-                    width: '100%',
-                    height: '100%',
-                }}
-                pagination={{ clickable: true }}
                 navigation
-                loop={true}
-                direction={'horizontal'}
-                modules={[Navigation, Pagination]}
-                slidesPerView={2}
-                spaceBetween={50}
                 breakpoints={{
                     320: {
                         slidesPerView: 1,
@@ -37,6 +27,16 @@ export function ProjectsCarousel() {
                         slidesPerView: 2,
                         spaceBetween: 50,
                     },
+                }}
+                direction={'horizontal'}
+                loop={true}
+                modules={[Navigation, Pagination]}
+                pagination={{ clickable: true }}
+                slidesPerView={2}
+                spaceBetween={50}
+                style={{
+                    width: '100%',
+                    height: '100%',
                 }}
             >
                 <SwiperSlide>

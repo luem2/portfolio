@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
-
+import { useEffect } from 'react'
 import Link from 'next/link'
-import { sidebarData } from '../constants'
 import { Button, Text, useTheme } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
+
+import { sidebarData } from '../constants'
+
 import styles from '/styles/SidebarMenu.module.css'
+
 import { useStore } from '../store/useStore'
 
 export function SidebarMenu() {
@@ -38,10 +40,10 @@ export function SidebarMenu() {
 
                     return (
                         <li
+                            key={item.title}
                             style={{
                                 padding: '0.5rem',
                             }}
-                            key={item.title}
                             onClick={() => {
                                 setOpenMenu(false)
                                 setActiveLink(
@@ -54,6 +56,7 @@ export function SidebarMenu() {
                             <Link href={item.path}>
                                 <a>
                                     <Text
+                                        b
                                         css={{
                                             display: 'flex',
                                             padding: '$2',
@@ -64,13 +67,12 @@ export function SidebarMenu() {
                                                     ? 'white'
                                                     : 'black',
                                         }}
-                                        b
                                         size={20}
                                     >
                                         {item.icon}
                                         <FormattedMessage
-                                            id={`navbar.${item.id}`}
                                             defaultMessage={item.title}
+                                            id={`navbar.${item.id}`}
                                         />
                                     </Text>
                                 </a>
@@ -79,28 +81,28 @@ export function SidebarMenu() {
                     )
                 })}
                 <a
+                    href={cvLang}
+                    rel='noopener noreferrer'
                     style={{
                         marginTop: '0.5rem',
                         alignSelf: 'center',
                     }}
-                    href={cvLang}
                     target='_blank'
-                    rel='noopener noreferrer'
                 >
                     <Button
-                        css={{
-                            justifyContent: 'center',
-                        }}
-                        color='gradient'
+                        animated
                         auto
                         ghost
                         shadow
-                        animated
+                        color='gradient'
+                        css={{
+                            justifyContent: 'center',
+                        }}
                     >
                         <Text b size={18}>
                             <FormattedMessage
-                                id='navbar.cv'
                                 defaultMessage='Download CV'
+                                id='navbar.cv'
                             />
                         </Text>
                     </Button>

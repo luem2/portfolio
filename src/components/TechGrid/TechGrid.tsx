@@ -1,8 +1,9 @@
-import React from 'react'
 import { Grid, Text, Tooltip } from '@nextui-org/react'
-import { TechCard } from './TechCard'
-import { techstack } from '../../constants'
 import { motion } from 'framer-motion'
+
+import { techstack } from '../../constants'
+
+import { TechCard } from './TechCard'
 
 export function TechGrid() {
     const container = {
@@ -21,38 +22,38 @@ export function TechGrid() {
     }
 
     return (
-        <motion.ul variants={container} initial='hidden' animate='show'>
+        <motion.ul animate='show' initial='hidden' variants={container}>
             <Grid.Container gap={2} justify='center'>
                 {techstack.map((tech) => (
                     <Grid
+                        key={tech.name}
+                        md={3}
                         style={{
                             display: 'flex',
                             justifyContent: 'center',
                         }}
-                        key={tech.name}
-                        md={3}
                     >
                         <motion.li
-                            variants={item}
                             style={{
                                 textDecoration: 'bio',
                             }}
+                            variants={item}
                         >
                             <Tooltip
-                                css={{
-                                    marginTop: '$2',
-                                    '@xsMax': { display: 'none' },
-                                }}
+                                rounded
+                                color='primary'
                                 content={
-                                    <Text color='white' b>
+                                    <Text b color='white'>
                                         {tech.name}
                                         {tech.secondLine &&
                                             '/' + tech.secondLine}
                                     </Text>
                                 }
-                                rounded
-                                color='primary'
                                 contentColor='default'
+                                css={{
+                                    marginTop: '$2',
+                                    '@xsMax': { display: 'none' },
+                                }}
                             >
                                 <TechCard tech={tech} />
                             </Tooltip>

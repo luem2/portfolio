@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app'
 
-import React from 'react'
 import { NextUIProvider, useSSR } from '@nextui-org/react'
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
+
 import { Navbar, SidebarMenu } from '../src/components'
 import { darkTheme, lightTheme } from '../themes'
 import { LangProvider } from '../src/context/langContext'
@@ -20,8 +20,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             <LangProvider>
                 <NextUIProvider theme={theme}>
                     <NextThemesProvider
-                        defaultTheme='system'
                         attribute='class'
+                        defaultTheme='system'
                         value={{
                             light: lightTheme.className,
                             dark: darkTheme.className,

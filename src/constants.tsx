@@ -1,5 +1,5 @@
-import type { SideBarObject } from '../types/types'
-import React from 'react'
+import type { IProject, SideBarObject } from '../types/types'
+
 import {
     htmlLogo,
     cssLogo,
@@ -117,7 +117,7 @@ export const techstack = [
     },
 ]
 
-export const projectData = [
+export const projectData: IProject[] = [
     {
         id: 'henryGames',
         name: 'Henry Games',
@@ -126,7 +126,8 @@ export const projectData = [
         gh: 'https://github.com/Luem2/pi-videogames',
         web: 'https://henrygames.lucianopinol.com/',
         logo: henryGamesLogo,
-        description: `Individual project done at Henry's Bootcamp, is an application to search and create game information, filter by name, rating, genre and origin.`,
+        description:
+            "Individual project done at Henry's Bootcamp, is an application to search and create game information, filter by name, rating, genre and origin.",
         technologies: {
             frontend: 'Typescript, React, Redux, Docker',
             backend:

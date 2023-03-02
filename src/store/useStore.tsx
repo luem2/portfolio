@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+
 import { CV_SPANISH } from '../constants'
 
 interface IStore {
