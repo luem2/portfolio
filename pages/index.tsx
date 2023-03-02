@@ -1,12 +1,13 @@
 import React from 'react'
-import { Button, Row, Text, Image } from '@nextui-org/react'
+import { Row, Text } from '@nextui-org/react'
 import { Layout } from '../src/components'
 import { AiOutlineComment, BiLinkExternal } from '../src/assets'
 import { useRouter } from 'next/router'
-import { avatar } from '../src/assets/'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
 import { useStore } from '../src/store/useStore'
+import styles from '../styles/HomePage.module.css'
+import { ButtonMotion } from '../src/components/Button'
 
 export default function Home() {
     const { setActiveLink } = useStore()
@@ -53,19 +54,18 @@ export default function Home() {
                         defaultMessage='Full Stack Developer based in Entre Rios, Argentina.'
                     />
                 </Text>
+
+                {/* AVATAR */}
                 <motion.div
+                    whileTap={{
+                        scale: 0.9,
+                    }}
+                    className={styles.avatar}
                     style={{
                         marginTop: '3rem',
                         marginBottom: '1.5rem',
                     }}
-                >
-                    <Image
-                        src={avatar.src}
-                        alt='logo-Luem'
-                        width={220}
-                        height={220}
-                    />
-                </motion.div>
+                />
 
                 <Row
                     justify='center'
@@ -74,46 +74,43 @@ export default function Home() {
                         marginBottom: '$15',
                     }}
                 >
-                    <Button
-                        css={{
+                    <ButtonMotion
+                        styles={{
                             zIndex: '$1',
                             marginTop: '$10',
                         }}
-                        auto
-                        onClick={() => {
-                            router.push('/about')
-                            setActiveLink('about')
-                        }}
-                        icon={<BiLinkExternal size={25} />}
-                        color='secondary'
-                    >
-                        <Text b size={16} color='white'>
+                        backgroundColor='$purple700'
+                        type='button'
+                        formattedMessage={
                             <FormattedMessage
                                 id='index.knowMe'
                                 defaultMessage='Know me!'
                             />
-                        </Text>
-                    </Button>
-                    <Button
-                        css={{
+                        }
+                        icon={<BiLinkExternal size={25} />}
+                        onPress={() => {
+                            router.push('/about')
+                            setActiveLink('about')
+                        }}
+                    />
+                    <ButtonMotion
+                        styles={{
                             zIndex: '$1',
                             marginTop: '$10',
                         }}
-                        auto
-                        onClick={() => {
+                        type='button'
+                        formattedMessage={
+                            <FormattedMessage
+                                id='index.letsTalk'
+                                defaultMessage='Lets Talk!'
+                            />
+                        }
+                        icon={<AiOutlineComment size={25} />}
+                        onPress={() => {
                             router.push('/contact')
                             setActiveLink('contact')
                         }}
-                        icon={<AiOutlineComment size={25} />}
-                        color='primary'
-                    >
-                        <Text b size={16} color='white'>
-                            <FormattedMessage
-                                id='index.letsTalk'
-                                defaultMessage='Lets Talk'
-                            />
-                        </Text>
-                    </Button>
+                    />
                 </Row>
             </motion.div>
         </Layout>

@@ -8,11 +8,15 @@ import { MessageInput } from './inputs/MessageInput'
 import { NameInput } from './inputs/NameInput'
 import { ErrorModal } from './modals/ErrorModal'
 import { SuccessModal } from './modals/SuccessModal'
-import { ButtonClearForm, ButtonSubmitForm } from '../Button'
+import { ButtonMotion } from '../Button'
 import { validateEmail } from './helpers'
 import useHelperName from '../../hooks/useHelper'
 import useHelperEmail from '../../hooks/useHelper'
 import useHelperMessage from '../../hooks/useHelper'
+import { FaTelegramPlane } from 'react-icons/fa'
+import { AiOutlineClear } from 'react-icons/ai'
+import { FormattedMessage } from 'react-intl'
+import { motion } from 'framer-motion'
 
 interface Inputs {
     user_name: string
@@ -85,9 +89,32 @@ export function Form() {
                 <Spacer y={2} />
 
                 <Row>
-                    <ButtonSubmitForm />
+                    <ButtonMotion
+                        styles={null}
+                        backgroundColor={'$pink700'}
+                        icon={<FaTelegramPlane size={20} />}
+                        type='submit'
+                        formattedMessage={
+                            <FormattedMessage
+                                id='contact.submit'
+                                defaultMessage='Submit'
+                            />
+                        }
+                    />
                     <Spacer x={0.6} />
-                    <ButtonClearForm onClick={reset} />
+                    <ButtonMotion
+                        styles={null}
+                        backgroundColor={'$purple700'}
+                        icon={<AiOutlineClear size={20} />}
+                        type='reset'
+                        onPress={reset}
+                        formattedMessage={
+                            <FormattedMessage
+                                id='contact.clear'
+                                defaultMessage='Clear'
+                            />
+                        }
+                    />
                 </Row>
             </form>
             <SuccessModal success={[success, setSuccess]} />

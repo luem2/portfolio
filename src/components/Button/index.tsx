@@ -1,42 +1,39 @@
 import { Button } from '@nextui-org/react'
 import { Text } from '@nextui-org/react'
-import { FaTelegramPlane } from 'react-icons/fa'
-import { AiOutlineClear } from 'react-icons/ai'
-import { FormattedMessage } from 'react-intl'
+import { motion } from 'framer-motion'
 
-export function ButtonSubmitForm() {
+export function ButtonMotion({
+    icon,
+    type,
+    onPress = null,
+    styles,
+    backgroundColor = null,
+    formattedMessage,
+}) {
     return (
-        <Button
-            css={{
-                backgroundColor: '$pink700',
-                zIndex: '$1',
+        <motion.div
+            whileHover={{
+                scale: 1.035,
             }}
-            type='submit'
-            icon={<FaTelegramPlane size={20} />}
-            auto
-        >
-            <Text weight={'bold'} color='white'>
-                <FormattedMessage id='contact.submit' defaultMessage='Submit' />
-            </Text>
-        </Button>
-    )
-}
-
-export function ButtonClearForm({ onClick }) {
-    return (
-        <Button
-            css={{
-                backgroundColor: '$purple700',
-                zIndex: '$1',
+            whileTap={{
+                scale: 0.94,
             }}
-            type='reset'
-            onClick={onClick}
-            icon={<AiOutlineClear size={20} />}
-            auto
         >
-            <Text weight={'bold'} color='white'>
-                <FormattedMessage id='contact.clear' defaultMessage='Clear' />
-            </Text>
-        </Button>
+            <Button
+                css={{
+                    backgroundColor,
+                    zIndex: '$1',
+                    ...styles,
+                }}
+                type={type}
+                onPress={onPress}
+                icon={icon}
+                auto
+            >
+                <Text b size={16} color='white'>
+                    {formattedMessage}
+                </Text>
+            </Button>
+        </motion.div>
     )
 }

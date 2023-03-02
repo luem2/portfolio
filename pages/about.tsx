@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
 import { useStore } from '../src/store/useStore'
+import { ButtonMotion } from '../src/components/Button'
 
 export default function About() {
     const { setActiveLink } = useStore()
@@ -153,50 +154,49 @@ preference for the backend, although I like the frontend a lot
                                 },
                             }}
                         >
-                            <Button
-                                css={{
+                            {/* Buttons */}
+
+                            <ButtonMotion
+                                styles={{
                                     marginTop: '$10',
                                     zIndex: '$1',
                                     width: 'auto',
                                     alignSelf: 'center',
                                 }}
-                                auto
-                                onClick={() => {
-                                    router.push('/contact')
-                                    setActiveLink('contact')
-                                }}
-                                icon={<GrMail size={25} />}
-                                color='primary'
-                            >
-                                <Text color='white' b>
+                                type='button'
+                                formattedMessage={
                                     <FormattedMessage
                                         id='about.getInTouch'
                                         defaultMessage='Get in Touch!'
                                     />
-                                </Text>
-                            </Button>
-                            <Button
-                                css={{
+                                }
+                                onPress={() => {
+                                    router.push('/contact')
+                                    setActiveLink('contact')
+                                }}
+                                icon={<GrMail size={25} />}
+                            />
+                            <ButtonMotion
+                                styles={{
                                     marginTop: '$10',
                                     zIndex: '$1',
                                     width: 'auto',
                                     alignSelf: 'center',
                                 }}
-                                auto
-                                onClick={() => {
-                                    router.push('/projects')
-                                    setActiveLink('projects')
-                                }}
-                                icon={<FaRocket size={25} />}
-                                color='secondary'
-                            >
-                                <Text color='white' b>
+                                type='button'
+                                backgroundColor='$purple700'
+                                formattedMessage={
                                     <FormattedMessage
                                         id='about.seeProjects'
                                         defaultMessage='See my projects!'
                                     />
-                                </Text>
-                            </Button>
+                                }
+                                onPress={() => {
+                                    router.push('/projects')
+                                    setActiveLink('projects')
+                                }}
+                                icon={<FaRocket size={25} />}
+                            />
                         </Box>
                     </Box>
 
