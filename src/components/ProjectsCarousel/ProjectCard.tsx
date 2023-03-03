@@ -98,7 +98,7 @@ export function ProjectCard({ project }: Props) {
                             left: '$16',
                         }}
                         icon={<AiFillInfoCircle size={25} />}
-                        onClick={() => modalHandler()}
+                        onPress={() => modalHandler()}
                     >
                         <Text b>
                             <FormattedMessage
