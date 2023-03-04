@@ -1,5 +1,7 @@
 import type { IProject, SideBarObject } from '../types/types'
 
+import { FormattedMessage } from 'react-intl'
+
 import {
     htmlLogo,
     cssLogo,
@@ -27,6 +29,9 @@ import {
     BsFillPersonFill,
     BsStack,
     MdOutlineEmail,
+    AiFillAndroid,
+    BsFillBriefcaseFill,
+    IoMdContact,
 } from './assets'
 
 export const techstack = [
@@ -213,3 +218,57 @@ export const sidebarData: SideBarObject[] = [
 
 export const CV_SPANISH = '/cv-luciano-pinol-spanish.pdf'
 export const CV_ENGLISH = '/cv-luciano-pinol-english.pdf'
+
+export const navbarLinks = [
+    {
+        id: 'Home1',
+        formattedMessage: (
+            <FormattedMessage defaultMessage='Home' id='navbar.home' />
+        ),
+        icon: <AiFillHome size={15} />,
+        path: '/',
+    },
+    {
+        id: 'AboutMe2',
+        formattedMessage: (
+            <FormattedMessage defaultMessage='About' id='navbar.about' />
+        ),
+        icon: <BsFillPersonFill size={15} />,
+        path: 'about',
+    },
+    {
+        id: 'TechStack3',
+        formattedMessage: (
+            <FormattedMessage
+                defaultMessage='Tech Stack'
+                id='navbar.techStack'
+            />
+        ),
+        icon: <AiFillAndroid size={15} />,
+        path: 'tech-stack',
+    },
+    {
+        id: 'Projects4',
+        formattedMessage: (
+            <FormattedMessage defaultMessage='Projects' id='navbar.projects' />
+        ),
+        icon: <BsFillBriefcaseFill size={15} />,
+        path: 'projects',
+    },
+    {
+        id: 'Contact5',
+        formattedMessage: (
+            <FormattedMessage defaultMessage='Contact' id='navbar.contact' />
+        ),
+        icon: <IoMdContact size={15} />,
+        path: 'contact',
+    },
+]
+
+export const hoverStyle = {
+    minWidth: '100%',
+    '&:hover': {
+        color: '$pink600',
+        fontWeight: 'bold',
+    },
+}

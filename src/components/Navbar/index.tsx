@@ -1,8 +1,9 @@
+import NextLink from 'next/link'
 import { useEffect, useState } from 'react'
 import { Image } from '@nextui-org/react'
-import NextLink from 'next/link'
 import { Button, Navbar } from '@nextui-org/react'
 import { FormattedMessage } from 'react-intl'
+import { useRouter } from 'next/router'
 
 import { logo } from '../../assets'
 import { HamburgerButton } from '../HamburgerButton'
@@ -10,28 +11,23 @@ import { HamburgerButton } from '../HamburgerButton'
 import styles from '/styles/Navbar.module.css'
 
 import { useStore } from '../../store/useStore'
+import { navbarLinks } from '../../constants'
+import { NavbarLinkItem } from '../Button'
 
 import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons'
 
 export default function NavigateBar() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const { cvLang, activeLink, setActiveLink, openMenu } = useStore()
-
-    const hoverStyle = {
-        minWidth: '100%',
-        '&:hover': {
-            color: '$pink600',
-            fontWeight: 'bold',
-        },
-    }
+    const router = useRouter()
 
     useEffect(() => {
-        if (window.location.pathname === '/') {
+        if (router.asPath === '/') {
             setActiveLink('/')
         } else {
-            setActiveLink(window.location.pathname.slice(1))
+            setActiveLink(router.asPath.slice(1))
         }
-    }, [setActiveLink])
+    }, [setActiveLink, router.asPath])
 
     return (
         <Navbar
@@ -75,78 +71,27 @@ export default function NavigateBar() {
             </Navbar.Content>
 
             {/* NAVIGATION */}
-            <Navbar.Content
-                isCursorHighlightRounded
-                activeColor='secondary'
-                hideIn='md'
-                variant='underline-rounded'
-            >
-                <NextLink href='/'>
-                    <Navbar.Link
-                        css={hoverStyle}
-                        isActive={activeLink === '/'}
-                        onClick={() => setActiveLink('/')}
-                    >
-                        <FormattedMessage
-                            defaultMessage='Home'
-                            id='navbar.home'
+            <Navbar.Content hideIn='md'>
+                {navbarLinks.map((navItem) => {
+                    return (
+                        <NavbarLinkItem
+                            key={navItem.id}
+                            formattedMessage={navItem.formattedMessage}
+                            icon={navItem.icon}
+                            isActive={activeLink === navItem.path}
+                            onPress={() => {
+                                if (navItem.path === '/') {
+                                    router.push(navItem.path)
+                                    setActiveLink(navItem.path)
+
+                                    return
+                                }
+                                router.push(`/${navItem.path}`)
+                                setActiveLink(navItem.path)
+                            }}
                         />
-                    </Navbar.Link>
-                </NextLink>
-                <NextLink href='/about'>
-                    <Navbar.Link
-                        css={hoverStyle}
-                        isActive={activeLink === 'about'}
-                        onClick={() => setActiveLink('about')}
-                    >
-                        <FormattedMessage
-                            defaultMessage='About'
-                            id='navbar.about'
-                        />
-                    </Navbar.Link>
-                </NextLink>
-                <NextLink href='/tech-stack'>
-                    <Navbar.Link
-                        css={{
-                            minWidth: '100%',
-                            '&:hover': {
-                                color: '$pink600',
-                                fontWeight: 'bold',
-                            },
-                        }}
-                        isActive={activeLink === 'tech-stack'}
-                        onClick={() => setActiveLink('tech-stack')}
-                    >
-                        <FormattedMessage
-                            defaultMessage='Tech Stack'
-                            id='navbar.techStack'
-                        />
-                    </Navbar.Link>
-                </NextLink>
-                <NextLink href='/projects'>
-                    <Navbar.Link
-                        css={hoverStyle}
-                        isActive={activeLink === 'projects'}
-                        onClick={() => setActiveLink('projects')}
-                    >
-                        <FormattedMessage
-                            defaultMessage='Projects'
-                            id='navbar.projects'
-                        />
-                    </Navbar.Link>
-                </NextLink>
-                <NextLink href='/contact'>
-                    <Navbar.Link
-                        css={hoverStyle}
-                        isActive={activeLink === 'contact'}
-                        onClick={() => setActiveLink('contact')}
-                    >
-                        <FormattedMessage
-                            defaultMessage='Contact'
-                            id='navbar.contact'
-                        />
-                    </Navbar.Link>
-                </NextLink>
+                    )
+                })}
                 <a href={cvLang} rel='noopener noreferrer' target='_blank'>
                     <Button animated auto ghost shadow color='gradient'>
                         <FormattedMessage

@@ -1,6 +1,7 @@
-import { Button } from '@nextui-org/react'
+import { Button, Container } from '@nextui-org/react'
 import { Text } from '@nextui-org/react'
 import { motion } from 'framer-motion'
+import { useTheme } from 'next-themes'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     icon: React.ReactNode
@@ -43,5 +44,49 @@ export function ButtonMotion({
                 </Text>
             </Button>
         </motion.div>
+    )
+}
+
+interface INavbarLink extends Omit<ButtonProps, 'backgroundColor' | 'styles'> {
+    isActive: boolean
+}
+
+export function NavbarLinkItem({
+    formattedMessage,
+    icon,
+    onPress,
+    isActive = false,
+}: INavbarLink) {
+    const { theme } = useTheme()
+
+    return (
+        <Container
+            css={{
+                padding: '$5',
+                width: 'fit-content',
+            }}
+        >
+            <Button
+                auto
+                css={{
+                    color: isActive
+                        ? '$red700'
+                        : theme === 'dark'
+                        ? 'white'
+                        : 'black',
+                    padding: '$0',
+                    fontSize: '$md',
+                    background: 'transparent',
+                    width: 'fit-content',
+                    '&:hover': {
+                        color: '$red700',
+                    },
+                }}
+                icon={icon}
+                onPress={onPress}
+            >
+                {formattedMessage}
+            </Button>
+        </Container>
     )
 }
