@@ -146,6 +146,7 @@ preference for the backend, although I like the frontend a lot
                                 gap: '$10',
                                 '@mdMax': {
                                     justifyContent: 'center',
+                                    alignItems: 'center',
                                     marginBottom: '$10',
                                 },
                                 '@xsMax': {
