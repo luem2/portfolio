@@ -12,7 +12,6 @@ export default function About() {
     const { setActiveLink } = useStore()
 
     const router = useRouter()
-    const { isDark } = useTheme()
 
     const variants = {
         hidden: {
