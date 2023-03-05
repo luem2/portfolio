@@ -205,18 +205,15 @@ preference for the backend, although I like the frontend a lot
                         alt='profilePhoto'
                         css={{
                             maxWidth: '100%',
-                            filter: 'grayscale(100%)',
-                            border: isDark
-                                ? '3px solid black'
-                                : '3px solid transparent',
+                            filter: 'none',
+                            border: '3px solid #b2b',
                             borderRadius: '50%',
                             transition: 'all 0.5s',
                             width: 400,
                             height: 400,
                             backgroundColor: 'white',
                             '&:hover': {
-                                filter: 'none',
-                                border: '3px solid #b2b',
+                                filter: 'grayscale(100%)',
                             },
                             '@xsMax': {
                                 width: 300,
