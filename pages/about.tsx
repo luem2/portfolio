@@ -1,4 +1,4 @@
-import { Image, Text, useTheme } from '@nextui-org/react'
+import { Image, Text } from '@nextui-org/react'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
