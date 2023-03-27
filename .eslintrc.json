@@ -37,8 +37,8 @@
         "@typescript-eslint/restrict-template-expressions": "off",
         "@typescript-eslint/no-unused-vars": ["error"],
         //----------------------------------------------------
+        "semi": ["error", "never"],
         "react/self-closing-comp": "warn",
-        "semi": "off",
         "no-console": [
             "warn",
             {
