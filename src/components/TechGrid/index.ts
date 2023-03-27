@@ -1,2 +1,2 @@
-export * from './TechGrid';
-export * from './TechCard';
+export * from './TechGrid'
+export * from './TechCard'

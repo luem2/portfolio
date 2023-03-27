@@ -12,8 +12,8 @@ import styles from '/styles/Navbar.module.css'
 
 import { useStore } from '../../store/useStore'
 import { navbarLinks } from '../../constants'
-import { NavbarLinkItem } from './NavbarLinkItem'
 
+import { NavbarLinkItem } from './NavbarLinkItem'
 import { UtilityIcons, UtilityIconsCompacted } from './UtilityIcons'
 
 export default function NavigateBar() {

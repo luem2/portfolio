@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Document, {
     Html,
     Head,
@@ -6,19 +6,19 @@ import Document, {
     NextScript,
     DocumentContext,
     DocumentInitialProps,
-} from 'next/document';
-import { CssBaseline } from '@nextui-org/react';
+} from 'next/document'
+import { CssBaseline } from '@nextui-org/react'
 
 class MyDocument extends Document {
     static async getInitialProps(
         ctx: DocumentContext
     ): Promise<DocumentInitialProps> {
-        const initialProps = await Document.getInitialProps(ctx);
+        const initialProps = await Document.getInitialProps(ctx)
 
         return {
             ...initialProps,
             styles: React.Children.toArray([initialProps.styles]),
-        };
+        }
     }
 
     render() {
@@ -36,8 +36,8 @@ class MyDocument extends Document {
                     <NextScript />
                 </body>
             </Html>
-        );
+        )
     }
 }
 
-export default MyDocument;
+export default MyDocument

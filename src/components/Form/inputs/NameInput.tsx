@@ -15,12 +15,14 @@ export function NameInput({ helperName, props }: Props) {
             required
             color={helperName.color}
             helperColor={helperName.color}
-            helperText={helperName.text}
+            helperText={helperName.text as string}
             labelPlaceholder={
-                <FormattedMessage
-                    defaultMessage='Name'
-                    id='form.namePlaceholder'
-                />
+                (
+                    <FormattedMessage
+                        defaultMessage='Name'
+                        id='form.namePlaceholder'
+                    />
+                ) as unknown as string
             }
             name='user_name'
             shadow={false}

@@ -1,5 +1,6 @@
 import { Button, Container } from '@nextui-org/react'
 import { useTheme } from 'next-themes'
+
 import { ButtonProps } from '../Button'
 
 interface INavbarLink extends Omit<ButtonProps, 'backgroundColor' | 'styles'> {

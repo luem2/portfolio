@@ -15,12 +15,14 @@ export function MessageInput({ helperMessage, props }: Props) {
             required
             color={helperMessage.color}
             helperColor={helperMessage.color}
-            helperText={helperMessage.text}
+            helperText={helperMessage.text as string}
             labelPlaceholder={
-                <FormattedMessage
-                    defaultMessage='Message'
-                    id='form.messagePlaceholder'
-                />
+                (
+                    <FormattedMessage
+                        defaultMessage='Message'
+                        id='form.messagePlaceholder'
+                    />
+                ) as unknown as string
             }
             name='user_message'
             shadow={false}

@@ -15,12 +15,14 @@ export function EmailInput({ helperEmail, props }: Props) {
             required
             color={helperEmail.color}
             helperColor={helperEmail.color}
-            helperText={helperEmail.text}
+            helperText={helperEmail.text as string}
             labelPlaceholder={
-                <FormattedMessage
-                    defaultMessage='Email'
-                    id='form.emailPlaceholder'
-                />
+                (
+                    <FormattedMessage
+                        defaultMessage='Email'
+                        id='form.emailPlaceholder'
+                    />
+                ) as unknown as string
             }
             name='user_email'
             shadow={false}

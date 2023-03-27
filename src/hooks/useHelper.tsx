@@ -1,13 +1,13 @@
-import type { SimpleColors } from '@nextui-org/react';
+import type { SimpleColors } from '@nextui-org/react'
 
-import { useMemo } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useMemo } from 'react'
+import { FormattedMessage } from 'react-intl'
 
 import {
     validateEmail,
     validateMessage,
     validateName,
-} from '../components/Form/helpers';
+} from '../components/Form/helpers'
 
 const useHelper = (value: string) => {
     const helperName = useMemo((): {
@@ -23,10 +23,10 @@ const useHelper = (value: string) => {
                     />
                 ),
                 color: 'secondary',
-            };
+            }
         }
 
-        const isValid = validateName(value);
+        const isValid = validateName(value)
 
         return {
             text: isValid ? (
@@ -41,8 +41,8 @@ const useHelper = (value: string) => {
                 />
             ),
             color: isValid ? 'success' : 'error',
-        };
-    }, [value]);
+        }
+    }, [value])
 
     const helperEmail = useMemo((): {
         text: string | React.ReactNode
@@ -57,10 +57,10 @@ const useHelper = (value: string) => {
                     />
                 ),
                 color: 'secondary',
-            };
+            }
         }
 
-        const isValid = validateEmail(value);
+        const isValid = validateEmail(value)
 
         return {
             text: isValid ? (
@@ -75,8 +75,8 @@ const useHelper = (value: string) => {
                 />
             ),
             color: isValid ? 'success' : 'error',
-        };
-    }, [value]);
+        }
+    }, [value])
 
     const helperMessage = useMemo((): {
         text: string | React.ReactNode
@@ -91,10 +91,10 @@ const useHelper = (value: string) => {
                     />
                 ),
                 color: 'secondary',
-            };
+            }
         }
 
-        const isValid = validateMessage(value);
+        const isValid = validateMessage(value)
 
         return {
             text: isValid ? (
@@ -109,14 +109,14 @@ const useHelper = (value: string) => {
                 />
             ),
             color: isValid ? 'success' : 'error',
-        };
-    }, [value]);
+        }
+    }, [value])
 
     return {
         helperName,
         helperEmail,
         helperMessage,
-    };
-};
+    }
+}
 
-export default useHelper;
+export default useHelper
