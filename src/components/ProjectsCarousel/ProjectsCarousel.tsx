@@ -1,7 +1,10 @@
 import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import Image from 'next/image'
 
 import { projectData } from '../../constants'
+import { Box } from '../Box'
+import { gradient4 } from '../../assets'
 
 import { ProjectCard } from './ProjectCard'
 
@@ -12,6 +15,20 @@ import 'swiper/css/pagination'
 export function ProjectsCarousel() {
     return (
         <>
+            <Box
+                css={{
+                    position: 'absolute',
+                    top: '-1',
+                    zIndex: '$0',
+                }}
+            >
+                <Image
+                    alt='gradient-projects'
+                    height={1700}
+                    src={gradient4}
+                    width={1900}
+                />
+            </Box>
             <Swiper
                 navigation
                 breakpoints={{

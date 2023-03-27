@@ -1,7 +1,10 @@
 import { Grid, Text, Tooltip } from '@nextui-org/react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
+import { gradient2 } from '../../assets'
 import { techstack } from '../../constants'
+import { Box } from '../Box'
 
 import { TechCard } from './TechCard'
 
@@ -24,6 +27,15 @@ export function TechGrid() {
     return (
         <motion.ul animate='show' initial='hidden' variants={container}>
             <Grid.Container gap={2} justify='center'>
+                <Box
+                    css={{
+                        position: 'absolute',
+                        top: '$0',
+                        zIndex: '$0',
+                    }}
+                >
+                    <Image alt='gradient-techStack' src={gradient2} />
+                </Box>
                 {techstack.map((tech) => (
                     <Grid
                         key={tech.name}

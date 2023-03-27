@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
 
-import { GrMail, FaRocket, profilePhoto } from '../src/assets'
+import { GrMail, FaRocket, profilePhoto, gradient1 } from '../src/assets'
 import { Box, Layout } from '../src/components'
 import { useStore } from '../src/store/useStore'
 import { ButtonMotion } from '../src/components/Button'
@@ -197,6 +197,19 @@ preference for the backend, although I like the frontend a lot
                                     setActiveLink('projects')
                                 }}
                             />
+                            <Box
+                                css={{
+                                    position: 'absolute',
+                                    top: '$0',
+                                    right: '$0',
+                                    zIndex: '-100',
+                                }}
+                            >
+                                <Image
+                                    alt='gradient-about'
+                                    src={gradient1.src}
+                                />
+                            </Box>
                         </Box>
                     </Box>
 

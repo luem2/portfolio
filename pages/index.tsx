@@ -3,11 +3,11 @@ import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import { FormattedMessage } from 'react-intl'
 
-import { AiOutlineComment, BiLinkExternal } from '../src/assets'
+import { AiOutlineComment, BiLinkExternal, gradient4 } from '../src/assets'
 import { Layout } from '../src/components'
 import { useStore } from '../src/store/useStore'
 import { ButtonMotion } from '../src/components/Button'
-import { avatar, avatarShaked } from '../src/assets/'
+import { avatar, avatarHovered } from '../src/assets/'
 import styles from '../styles/HomePage.module.css'
 
 export default function Home() {
@@ -74,13 +74,26 @@ export default function Home() {
                                 src={avatar.src}
                             />
                             <Image
-                                alt='avatar-shaked'
+                                alt='avatar-hovered'
                                 className={styles.secondAvatar}
-                                src={avatarShaked.src}
+                                src={avatarHovered.src}
                             />
                         </Col>
+                        <Row
+                            css={{
+                                position: 'absolute',
+                                top: '-1',
+                                right: '$0',
+                                zIndex: '-100',
+                            }}
+                        >
+                            <Image
+                                alt='gradient-home'
+                                src={gradient4.src}
+                                width={1000}
+                            />
+                        </Row>
                     </Container>
-
                     <Row
                         css={{
                             gap: '$10',
