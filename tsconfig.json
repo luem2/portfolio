@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "ESNext",
         "lib": [
-            "dom",
-            "dom.iterable",
-            "esnext",
+            "DOM",
+            "DOM.Iterable",
+            "ESNext",
             "ESNext.Intl",
             "ES2017.Intl",
             "ES2018.Intl"
