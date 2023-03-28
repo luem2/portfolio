@@ -17,7 +17,7 @@ export function ErrorModal({ error }: Props) {
                 blur
                 closeButton
                 open={visible}
-                onClose={() => setVisible(true)}
+                onClose={() => setVisible(false)}
             >
                 <Modal.Header>
                     <Text b size={18}>
@@ -42,7 +42,7 @@ export function ErrorModal({ error }: Props) {
                     <Button
                         auto
                         color='error'
-                        onClick={() => setVisible(false)}
+                        onPress={() => setVisible(false)}
                     >
                         <Text b size={16}>
                             <FormattedMessage

@@ -54,7 +54,7 @@ export function SuccessModal({ success }: Props) {
                     <Button
                         auto
                         color='success'
-                        onClick={() => setVisible(false)}
+                        onPress={() => setVisible(false)}
                     >
                         <Text b size={16}>
                             <FormattedMessage
