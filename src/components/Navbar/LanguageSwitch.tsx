@@ -45,6 +45,7 @@ export function LanguageSwitch() {
         <Image
             alt={`${locale}-logo`}
             css={{
+                pointerEvents: 'all',
                 '&:hover': {
                     cursor: 'pointer',
                 },

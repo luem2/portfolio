@@ -216,6 +216,7 @@ preference for the backend, although I like the frontend a lot
                     <Image
                         alt='profilePhoto'
                         css={{
+                            pointerEvents: 'all',
                             maxWidth: '100%',
                             filter: 'none',
                             border: '3px solid #b2b',
