@@ -55,7 +55,7 @@ export default function Contact() {
                     position: 'absolute',
                     right: '$0',
                     bottom: '$0',
-                    zIndex: '$0',
+                    zIndex: '-1',
                 }}
             >
                 <Image
