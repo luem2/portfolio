@@ -1,23 +1,4 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-
 <a name="readme-top"></a>
-
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 
 <div align="center">
 
@@ -28,8 +9,6 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 </div>
-
-<!-- PROJECT LOGO -->
 
 <br />
 
@@ -46,7 +25,7 @@
 <a href="https://github.com/Luem2/portfolio/blob/main/README.md"><strong>Explore el README en inglés »</strong></a>
 <br />
 <br />
-<a href="https://lucianopinol.com">Ver el Portfolio</a>
+<a href="https://pinol.lat">Ver el Portfolio</a>
 ·
 <a href="https://github.com/luem2/portfolio/issues">Reportar Fallo</a>
 ·
@@ -55,7 +34,7 @@
   </p>
 </div>
 
-[![Portfolio Screenshot][product-screenshot]](https://lucianopinol.com)
+[![Portfolio Screenshot][product-screenshot]](https://pinol.lat)
 
 <br/>
 
@@ -78,13 +57,13 @@
 
 ### - Enlace al Sitio Web:
 
-> ## https://lucianopinol.com/
+> ## https://pinol.lat/
 
 <br/>
 
 ### - Enlace al CV:
 
-> ## https://lucianopinol.com/cv-luciano-pinol-spanish.pdf
+> ## https://pinol.lat/cv-luciano-pinol-spanish.pdf
 
 <br/>
 
@@ -107,7 +86,7 @@
 
 -   Linkedin: [https://linkedin.com/in/lucianopinol](https://linkedin.com/in/lucianopinol)
 -   Telegram: [@Luem02](https://t.me/luem02)
--   Email: dev@lucianopinol.com
+-   Email: lucianoepinol@gmail.com
 
 <p align="right">(<a href="#readme-top">volver al principio</a>)</p>
 

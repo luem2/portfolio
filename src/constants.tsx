@@ -129,7 +129,7 @@ export const projectData: IProject[] = [
         src: henryGames,
         alt: 'henry-games',
         gh: 'https://github.com/Luem2/pi-videogames',
-        web: 'https://henrygames.lucianopinol.com/',
+        web: 'https://henrygames.pinol.lat/',
         logo: henryGamesLogo,
         description:
             "Individual project done at Henry's Bootcamp, is an application to search and create game information, filter by name, rating, genre and origin.",
