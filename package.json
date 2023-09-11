@@ -1,42 +1,42 @@
 {
-    "name": "portfolio",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
     "dependencies": {
         "@emailjs/browser": "^3.7.0",
         "@formatjs/intl": "^2.5.1",
-        "@nextui-org/react": "1.0.0-beta.13",
-        "framer-motion": "^7.5.2",
-        "next": "13.3.0",
+        "@nextui-org/react": "^2.1.10",
+        "framer-motion": "^10.16.4",
+        "next": "^13.4.19",
         "next-themes": "^0.2.1",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-hook-form": "^7.43.3",
         "react-icons": "^4.4.0",
         "react-intl": "^6.2.1",
-        "swiper": "^8.4.2",
+        "swiper": "^10.2.0",
         "zustand": "^4.3.5"
     },
     "devDependencies": {
-        "@types/node": "18.11.19",
+        "@types/node": "20.6.0",
         "@types/react": "^18.0.27",
-        "@typescript-eslint/eslint-plugin": "^5.54.0",
-        "@typescript-eslint/parser": "^5.54.0",
-        "eslint": "8.24.0",
-        "eslint-config-next": "12.3.1",
-        "eslint-config-prettier": "^8.6.0",
-        "eslint-config-standard-with-typescript": "^34.0.0",
+        "@typescript-eslint/eslint-plugin": "^6.6.0",
+        "@typescript-eslint/parser": "^6.6.0",
+        "eslint": "8.49.0",
+        "eslint-config-next": "13.4.19",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-config-standard-with-typescript": "^39.0.0",
         "eslint-plugin-hooks": "^0.4.3",
         "eslint-plugin-import": "^2.27.5",
-        "eslint-plugin-n": "^15.6.1",
+        "eslint-plugin-n": "^16.0.2",
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-react": "^7.32.2",
-        "typescript": "^4.9.5"
-    }
+        "typescript": "^5.2.2"
+    },
+    "name": "portfolio",
+    "private": true,
+    "scripts": {
+        "build": "next build",
+        "dev": "next dev",
+        "lint": "next lint",
+        "start": "next start"
+    },
+    "version": "0.1.0"
 }
