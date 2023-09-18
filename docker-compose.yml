@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+    app:
+        container_name: portfolio
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 5173:5173
+        networks:
+            - default
+networks:
+    default:
+        name: traefik_network
+        external: true
