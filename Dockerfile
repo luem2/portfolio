@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 5173
 
-CMD ["pnpm", "start", "--host"]
+CMD ["pnpm", "preview", "--host"]
