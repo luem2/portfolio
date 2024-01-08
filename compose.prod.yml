@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+    portfolio:
+        container_name: portfolio
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 4321:4321
+        networks:
+            - proxy_network
+networks:
+    proxy_network:
+        external: true

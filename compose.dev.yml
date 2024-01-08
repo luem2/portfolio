@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+    portfolio-dev:
+        container_name: portfolio
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        ports:
+            - 4321:4321
+        volumes:
+            - .:/app
