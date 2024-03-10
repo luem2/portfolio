@@ -3,6 +3,7 @@ version: '3.9'
 services:
     portfolio-dev:
         container_name: portfolio
+        restart: always
         build:
             context: .
             dockerfile: Dockerfile.dev
